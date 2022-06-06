@@ -1163,7 +1163,7 @@ textarea:focus {
 }
 
 .section-title {
-  max-width: 410px;
+  max-width: 1000px;
   margin: auto;
   margin-bottom: 68px;
 }
@@ -1176,6 +1176,16 @@ textarea:focus {
 
 .section-title .title {
   padding-bottom: 15px;
+  font-weight: 600;
+  display: inline;
+}
+
+.title-active {
+  padding-bottom: 15px;
+  font-weight: 600;
+  color: #00BAA0;
+  font-size: 2.5rem;
+  display: inline;
 }
 
 .section-title p {
@@ -1885,9 +1895,14 @@ textarea:focus {
           transform: scale(0.95) translateX(10px);
 }
 
+.service-policy-icon {
+  text-align: center;
+}
+
 .service-policy-title {
   font-weight: 700;
   padding: 17px 0 8px;
+  text-align: center;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
