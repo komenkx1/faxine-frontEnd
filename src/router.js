@@ -1,9 +1,10 @@
-import { createWebHistory, createRouter } from "vue-router";
-import Home from "./views/Home.vue";
-import Informasi from "./views/Informasi.vue";
-import Statistik from "./views/Statistik.vue";
-import Berita from "./views/Berita.vue";
-import TentangKami from "./views/Tentang-Kami.vue";
+import { createWebHistory, createRouter } from 'vue-router';
+import Home from './views/Home.vue';
+import Informasi from './views/Informasi.vue';
+import Statistik from './views/Statistik.vue';
+import Berita from './views/Berita.vue';
+import TentangKami from './views/Tentang-Kami.vue';
+import Login from './views/Login.vue';
 // lazy-loaded
 // const Profile = () => import("./components/Profile.vue")
 // const BoardAdmin = () => import("./views/Admin.vue")
@@ -12,29 +13,34 @@ import TentangKami from "./views/Tentang-Kami.vue";
 
 const routes = [
   {
-    path: "/",
-    name: "HomeVue",
+    path: '/',
+    name: 'HomeVue',
     component: Home,
   },
   {
-    path: "/Informasi",
-    name: "InformasiVue",
+    path: '/Informasi',
+    name: 'InformasiVue',
     component: Informasi,
   },
   {
-    path: "/Statistik",
-    name: "StatistikVue",
+    path: '/Statistik',
+    name: 'StatistikVue',
     component: Statistik,
   },
   {
-    path: "/Berita",
-    name: "BeritaVue",
+    path: '/Berita',
+    name: 'BeritaVue',
     component: Berita,
   },
   {
-    path: "/Tentang-Kami",
-    name: "TentangKamiVue",
+    path: '/Tentang-Kami',
+    name: 'TentangKamiVue',
     component: TentangKami,
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login,
   },
 ];
 
