@@ -2,9 +2,9 @@
   <section class="form section-padding">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-5 order-2 order-lg-1">
+        <div class="col-lg-12 order-2 order-lg-1">
           <div class="card">
-            <form action="" class="p-3">
+            <form action="" class="p-5">
               <div class="form-group">
                 <label for="">Nama</label>
                 <input

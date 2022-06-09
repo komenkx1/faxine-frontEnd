@@ -3542,6 +3542,29 @@ textarea:focus {
   }
 }
 
+.btn-primary {
+  color: white !important;
+  border-color: #00BAA0 !important;
+  background-color: #00BAA0 !important;
+}
+
+.btn-danger {
+  color: white !important;
+}
+
+.btn-success {
+  background-color: #00BAA0 !important;
+  border-color: #00BAA0 !important;
+}
+
+.text-primary {
+  color: #00BAA0 !important;
+}
+
+.card-title {
+  margin-top: 15px;
+}
+
 
 
 /* custom style toast sweet alert */

@@ -1,27 +1,27 @@
 <template>
   <AddLocationForm :lokasis="lokasi" v-if="isShowForm || isEdit" />
 
-  <div class="container">
+  <div class="container mb-5">
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header d-flex">
-            <h4 class="card-title">Lokasi Vaksin</h4>
+            <h4 class="w-100 card-title">Lokasi Vaksin</h4>
             <button
-              class="btn btn-primary"
+              class="w-25 btn btn-primary"
               v-if="!isShowForm"
               @click="showAddForm"
             >
-              Buat Lokasi Baru
+              Buat Informasi Baru
             </button>
-            <button class="btn btn-danger" v-else @click="showAddForm">
+            <button class="w-25 btn btn-danger" v-else @click="showAddForm">
               Tutup Form
             </button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
-                <thead class="text-primary">
+                <thead class="text-body">
                   <th>No</th>
                   <th>Lokasi Vaksin</th>
                   <th>Tanggal Mulai</th>
