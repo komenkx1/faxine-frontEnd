@@ -39,6 +39,7 @@
                       <li :class="{'active' : getRoutePath === '/Statistik'}"><router-link to="/Statistik">Data Statistik Covid</router-link></li>
                       <li :class="{'active' : getRoutePath === '/Berita'}"><router-link to="/Berita">Berita</router-link></li>
                       <li :class="{'active' : getRoutePath === '/Tentang-Kami'}"><router-link to="/Tentang-Kami">Tentang Kami</router-link></li>
+                      <li class="btn btn-danger" v-if="isLogin" @click="logout"><button>Logout</button></li>
                     </ul>
                   </nav>
                   <!-- main menu navbar end -->
@@ -114,11 +115,28 @@
 </template>
 
 <script>
+import AuthServices from '@/services/AuthServices';
+import IsLoginUser from '@/helper/CheckIsloginHelper';
+
 export default {
   name: "NavbarVue",
   data(){
         return{
-            clickToggler: false
+            clickToggler: false,
+            isLogin : false
+        }
+    },
+    mounted(){
+          
+        this.isLogin = IsLoginUser != null ? IsLoginUser.isLogin : false;
+    },
+    methods:{
+      async logout(){
+          await AuthServices.logout(); 
+           localStorage.removeItem('userLoginInfo')
+   
+         window.location.href = '/' 
+           console.log("terlogout")
         }
     },
     computed: {

@@ -7,11 +7,7 @@
         <div class="card">
           <div class="card-header d-flex">
             <h4 class="w-100 card-title">Lokasi Vaksin</h4>
-            <button
-              class="w-25 btn btn-primary"
-              v-if="!isShowForm"
-              @click="showAddForm"
-            >
+            <button class="w-25 btn btn-primary" v-if="!isShowForm" @click="showAddForm">
               Buat Informasi Baru
             </button>
             <button class="w-25 btn btn-danger" v-else @click="showAddForm">
@@ -25,7 +21,7 @@
                   <th>No</th>
                   <th>Lokasi Vaksin</th>
                   <th>Tanggal Mulai</th>
-                  <th>Action</th>
+                  <th v-if="isLogin">Action</th>
                 </thead>
                 <tbody>
                   <tr v-for="(lokasi, index) in lokasiDatas" :key="lokasi.id">
@@ -39,17 +35,11 @@
                     <td>
                       {{ lokasi.tanggal_mulai }}
                     </td>
-                    <td>
-                      <button
-                        class="btn btn-success"
-                        @click="getById(lokasi.id)"
-                      >
+                    <td v-if="isLogin">
+                      <button class="btn btn-success" @click="getById(lokasi.id)">
                         Edit
                       </button>
-                      <button
-                        class="btn btn-danger"
-                        @click="removeLokasi(lokasi.id)"
-                      >
+                      <button class="btn btn-danger" @click="removeLokasi(lokasi.id)">
                         Remove
                       </button>
                     </td>
@@ -68,11 +58,15 @@
 import LokasiService from "@/services/LokasiService";
 import AddLocationForm from "@/components/AddLocationForm.vue";
 import CustomAlert from "./CustomAlert.vue";
+import IsLoginUser from '@/helper/CheckIsloginHelper';
+
+
 
 export default {
   name: "LokasiListVue",
   data() {
     return {
+      isLogin: IsLoginUser != null ? IsLoginUser.isLogin : false,
       lokasiDatas: [],
       lokasi: {},
       isShowForm: false,
@@ -88,8 +82,8 @@ export default {
         this.isShowForm = true;
       }
     },
-    
-    loadData() {
+
+    async loadData() {
       LokasiService.getAll()
         .then((response) => {
           this.lokasiDatas = response.data.data;

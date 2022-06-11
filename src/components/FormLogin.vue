@@ -41,8 +41,11 @@
 </template>
 
 <script>
-import LoginServices from '@/services/LoginServices';
+import AuthServices from '@/services/AuthServices';
 import CustomAlert from './CustomAlert.vue';
+
+
+
 export default {
   name: 'FormLoginVue',
   data() {
@@ -56,21 +59,19 @@ export default {
   },
   methods: {
     isLogin() {
-      console.log(this.$parent);
       var data = {
         email: this.login.email,
         password: this.login.password,
       };
-      LoginServices.login(data)
+      AuthServices.login(data)
         .then((response) => {
-          LoginServices.setToken(response.data.access_token);
+          AuthServices.setToken(response.data.access_token);
           CustomAlert.fire({
             icon: 'success',
-            title: `Token ${response.data.access_token} `,
+            title: `Login Berhasil! `,
           });
-          console.log(response);
           this.login = {};
-          this.$parent.$router.push('/');
+         window.location.href = '/' 
         })
         .catch((e) => {
           if (e.response.data.message != null) {

@@ -1,10 +1,11 @@
-import http from "./ http-common";
+import http from "./http-common";
 
 class LokasiService {
     getAll() {
       return http.get("/lokasi");
     }
     get(id) {
+      
       return http.get(`/lokasi/${id}`);
     }
     create(data) {

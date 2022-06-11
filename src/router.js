@@ -5,6 +5,8 @@ import Statistik from './views/Statistik.vue';
 import Berita from './views/Berita.vue';
 import TentangKami from './views/Tentang-Kami.vue';
 import Login from './views/Login.vue';
+
+
 // lazy-loaded
 // const Profile = () => import("./components/Profile.vue")
 // const BoardAdmin = () => import("./views/Admin.vue")
@@ -43,6 +45,7 @@ const routes = [
     component: Login,
   },
 ];
+
 
 const router = createRouter({
   history: createWebHistory(),
