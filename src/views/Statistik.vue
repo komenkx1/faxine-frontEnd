@@ -128,9 +128,10 @@ export default {
                 this.deaths = response.data.deaths
                 this.recovered = response.data.recovered
                 this.critical = response.data.critical
-            })
+                this.isLoading = false
 
-        }, 20000)
+            })
+        }, 15000)
     }
 
 }

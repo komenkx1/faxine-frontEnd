@@ -12,6 +12,8 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+import './registerServiceWorker'
+
 /* add icons to the library */
 library.add(faTwitter);
 
