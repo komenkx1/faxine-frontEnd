@@ -24,7 +24,7 @@
         </div>
       </div>
       <!-- breadcrumb section end -->
-      <LokasiList/>
+      <LokasiList />
     </main>
   </div>
 </template>
@@ -43,12 +43,12 @@ export default {
   components: { LokasiList },
 
   methods: {
-     async showAlert() {
+    async showAlert() {
       // Use sweetalert2
       CustomAlert.fire({
-  icon: 'success',
-  title: 'Success'
-})
+        icon: 'success',
+        title: 'Success'
+      })
     },
   },
   mounted() {

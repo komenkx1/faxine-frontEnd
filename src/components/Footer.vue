@@ -14,8 +14,8 @@
                 </div>
                 <div class="widget-body">
                   <p class="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                    incididunt ut labore et dolore magna aliqua. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
                   </p>
                 </div>
               </div>
@@ -46,13 +46,8 @@
                 <div class="widget-body news-subtitle">
                   <div class="newsletter-inner">
                     <form id="mc-form">
-                      <input
-                        type="email"
-                        class="news-field"
-                        id="mc-email"
-                        autocomplete="off"
-                        placeholder="Input email disini"
-                      />
+                      <input type="email" class="news-field" id="mc-email" autocomplete="off"
+                        placeholder="Input email disini" />
                       <button class="btn btn-all" id="mc-submit">
                         Subscribe
                       </button>
@@ -92,6 +87,6 @@
 
 <script>
 export default {
-    name: "FooterVue",
+  name: "FooterVue",
 };
 </script>

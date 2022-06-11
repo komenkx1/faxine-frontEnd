@@ -7,27 +7,13 @@
             <form action="" class="p-3">
               <div class="form-group">
                 <label for="">Email</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Masukan Email Anda"
-                  id="email"
-                  required
-                  v-model="login.email"
-                  name="email"
-                />
+                <input type="text" class="form-control" placeholder="Masukan Email Anda" id="email" required
+                  v-model="login.email" name="email" />
               </div>
               <div class="form-group">
                 <label for="">Password</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Masukan Password"
-                  id="password"
-                  required
-                  v-model="login.password"
-                  name="password"
-                />
+                <input type="text" class="form-control" placeholder="Masukan Password" id="password" required
+                  v-model="login.password" name="password" />
               </div>
               <button @click="isLogin" type="button" class="btn btn-primary">
                 login
@@ -71,7 +57,7 @@ export default {
             title: `Login Berhasil! `,
           });
           this.login = {};
-         window.location.href = '/' 
+          window.location.href = '/'
         })
         .catch((e) => {
           if (e.response.data.message != null) {

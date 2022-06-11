@@ -7,78 +7,33 @@
             <form action="" class="p-5">
               <div class="form-group">
                 <label for="">Nama</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Masukan Nama Anda"
-                  id="nama_masyarakat"
-                  required
-                  v-model="lokasi.nama_masyarakat"
-                  name="nama_masyarakat"
-                />
+                <input type="text" class="form-control" placeholder="Masukan Nama Anda" id="nama_masyarakat" required
+                  v-model="lokasi.nama_masyarakat" name="nama_masyarakat" />
               </div>
               <div class="form-group">
                 <label for="">Lokasi Vaksin</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Masukan Lokasi Vaksinasi Belangsung"
-                  id="alamat"
-                  required
-                  v-model="lokasi.alamat"
-                  name="alamat"
-                />
+                <input type="text" class="form-control" placeholder="Masukan Lokasi Vaksinasi Belangsung" id="alamat"
+                  required v-model="lokasi.alamat" name="alamat" />
               </div>
               <div class="form-group">
                 <label for="">Tanggal Mulai</label>
-                <input
-                  type="datetime-local"
-                  class="form-control"
-                  placeholder="Masukan Tnggal Dimulainya Vaksinasi"
-                  id="tanggal_mulai"
-                  required
-                  v-model="lokasi.tanggal_mulai"
-                  name="tanggal_mulai"
-                />
+                <input type="datetime-local" class="form-control" placeholder="Masukan Tnggal Dimulainya Vaksinasi"
+                  id="tanggal_mulai" required v-model="lokasi.tanggal_mulai" name="tanggal_mulai" />
               </div>
               <div class="form-group">
                 <label for="">Tanggal Berakhir</label>
-                <input
-                  type="datetime-local"
-                  class="form-control"
-                  placeholder="Masukan Tanggal Berakhirnya Vaksinasi"
-                  id="tanggal_berakhir"
-                  required
-                  v-model="lokasi.tanggal_berakhir"
-                  name="tanggal_berakhir"
-                />
+                <input type="datetime-local" class="form-control" placeholder="Masukan Tanggal Berakhirnya Vaksinasi"
+                  id="tanggal_berakhir" required v-model="lokasi.tanggal_berakhir" name="tanggal_berakhir" />
               </div>
               <div class="form-group">
                 <label for="">Kapasitas Vaksinasi</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  placeholder="Masukan Kapasitas Vaksin Tersedia"
-                  id="kapasitas"
-                  required
-                  v-model="lokasi.kapasitas"
-                  name="kapasitas"
-                />
+                <input type="number" class="form-control" placeholder="Masukan Kapasitas Vaksin Tersedia" id="kapasitas"
+                  required v-model="lokasi.kapasitas" name="kapasitas" />
               </div>
-              <button
-                v-if="isEdit"
-                @click="updateLokasi"
-                type="button"
-                class="btn btn-primary"
-              >
+              <button v-if="isEdit" @click="updateLokasi" type="button" class="btn btn-primary">
                 Update
               </button>
-              <button
-                v-else-if="!isEdit"
-                @click="saveLokasi"
-                type="button"
-                class="btn btn-success"
-              >
+              <button v-else-if="!isEdit" @click="saveLokasi" type="button" class="btn btn-success">
                 Submit
               </button>
             </form>

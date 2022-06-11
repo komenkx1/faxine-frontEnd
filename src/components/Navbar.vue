@@ -34,11 +34,21 @@
                   <!-- main menu navbar start -->
                   <nav class="main-menu">
                     <ul>
-                      <li :class="{'active' : getRoutePath === '/'}"><router-link to="/">Home</router-link></li>
-                      <li :class="{'active' : getRoutePath === '/Informasi'}"><router-link to="/Informasi">Informasi Vaksin Covid</router-link></li>
-                      <li :class="{'active' : getRoutePath === '/Statistik'}"><router-link to="/Statistik">Data Statistik Covid</router-link></li>
-                      <li :class="{'active' : getRoutePath === '/Berita'}"><router-link to="/Berita">Berita</router-link></li>
-                      <li :class="{'active' : getRoutePath === '/Tentang-Kami'}"><router-link to="/Tentang-Kami">Tentang Kami</router-link></li>
+                      <li :class="{ 'active': getRoutePath === '/' }">
+                        <router-link to="/">Home</router-link>
+                      </li>
+                      <li :class="{ 'active': getRoutePath === '/Informasi' }">
+                        <router-link to="/Informasi">Informasi Vaksin Covid</router-link>
+                      </li>
+                      <li :class="{ 'active': getRoutePath === '/Statistik' }">
+                        <router-link to="/Statistik">Data Statistik Covid</router-link>
+                      </li>
+                      <li :class="{ 'active': getRoutePath === '/Berita' }">
+                        <router-link to="/Berita">Berita</router-link>
+                      </li>
+                      <li :class="{ 'active': getRoutePath === '/Tentang-Kami' }">
+                        <router-link to="/Tentang-Kami">Tentang Kami</router-link>
+                      </li>
                       <li class="btn btn-danger" v-if="isLogin" @click="logout"><button>Logout</button></li>
                     </ul>
                   </nav>
@@ -64,7 +74,7 @@
                     <img src="../assets/img/logo/faxine.png" />
                   </a>
                 </div>
-                <div @click="clickToggler =! clickToggler" class="mobile-menu-toggler">
+                <div @click="clickToggler = !clickToggler" class="mobile-menu-toggler">
                   <button class="mobile-menu-btn">
                     <span></span>
                     <span></span>
@@ -86,7 +96,7 @@
         <div class="off-canvas-overlay"></div>
         <div class="off-canvas-inner-content">
           <div class="btn-close-off-canvas" @click="this.clickToggler = false">
-            <i class="fa fa-close" ></i>
+            <i class="fa fa-close"></i>
           </div>
 
           <div class="off-canvas-inner">
@@ -120,32 +130,32 @@ import IsLoginUser from '@/helper/CheckIsloginHelper';
 
 export default {
   name: "NavbarVue",
-  data(){
-        return{
-            clickToggler: false,
-            isLogin : false
-        }
-    },
-    mounted(){
-          
-        this.isLogin = IsLoginUser != null ? IsLoginUser.isLogin : false;
-    },
-    methods:{
-      async logout(){
-          await AuthServices.logout(); 
-           localStorage.removeItem('userLoginInfo')
-   
-         window.location.href = '/' 
-           console.log("terlogout")
-        }
-    },
-    computed: {
-      getRoutePath(){
-        return this.$route.path;
-      },
-      getToggler(){
-        return this.clickToggler
-      }
+  data() {
+    return {
+      clickToggler: false,
+      isLogin: false
     }
+  },
+  mounted() {
+
+    this.isLogin = IsLoginUser != null ? IsLoginUser.isLogin : false;
+  },
+  methods: {
+    async logout() {
+      await AuthServices.logout();
+      localStorage.removeItem('userLoginInfo')
+
+      window.location.href = '/'
+      console.log("terlogout")
+    }
+  },
+  computed: {
+    getRoutePath() {
+      return this.$route.path;
+    },
+    getToggler() {
+      return this.clickToggler
+    }
+  }
 };
 </script>
