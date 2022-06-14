@@ -7,13 +7,27 @@
             <form action="" class="p-3">
               <div class="form-group">
                 <label for="">Email</label>
-                <input type="text" class="form-control" placeholder="Masukan Email Anda" id="email" required
-                  v-model="login.email" name="email" />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Masukan Email Anda"
+                  id="email"
+                  required
+                  v-model="login.email"
+                  name="email"
+                />
               </div>
               <div class="form-group">
                 <label for="">Password</label>
-                <input type="text" class="form-control" placeholder="Masukan Password" id="password" required
-                  v-model="login.password" name="password" />
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Masukan Password"
+                  id="password"
+                  required
+                  v-model="login.password"
+                  name="password"
+                />
               </div>
               <button @click="isLogin" type="button" class="btn btn-primary">
                 login
@@ -29,8 +43,6 @@
 <script>
 import AuthServices from '@/services/AuthServices';
 import CustomAlert from './CustomAlert.vue';
-
-
 
 export default {
   name: 'FormLoginVue',
@@ -57,13 +69,14 @@ export default {
             title: `Login Berhasil! `,
           });
           this.login = {};
-          window.location.href = '/'
+          window.location.href = '/';
         })
         .catch((e) => {
-          if (e.response.data.message != null) {
+          console.log(e);
+          if (e.response.data != null) {
             CustomAlert.fire({
               icon: 'error',
-              title: e.response.data.message,
+              title: e.response.data,
             });
           } else {
             CustomAlert.fire({

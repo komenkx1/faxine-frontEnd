@@ -7,7 +7,11 @@
         <div class="card">
           <div class="card-header d-flex">
             <h4 class="w-100 card-title">Lokasi Vaksin</h4>
-            <button class="w-25 btn btn-primary" v-if="!isShowForm" @click="showAddForm">
+            <button
+              class="w-25 btn btn-primary"
+              v-if="!isShowForm"
+              @click="showAddForm"
+            >
               Buat Informasi Baru
             </button>
             <button class="w-25 btn btn-danger" v-else @click="showAddForm">
@@ -36,10 +40,16 @@
                       {{ lokasi.tanggal_mulai }}
                     </td>
                     <td v-if="isLogin">
-                      <button class="btn btn-success" @click="getById(lokasi.id)">
+                      <button
+                        class="btn btn-success"
+                        @click="getById(lokasi.id)"
+                      >
                         Edit
                       </button>
-                      <button class="btn btn-danger" @click="removeLokasi(lokasi.id)">
+                      <button
+                        class="btn btn-danger"
+                        @click="removeLokasi(lokasi.id)"
+                      >
                         Remove
                       </button>
                     </td>
@@ -55,15 +65,13 @@
 </template>
 
 <script>
-import LokasiService from "@/services/LokasiService";
-import AddLocationForm from "@/components/AddLocationForm.vue";
-import CustomAlert from "./CustomAlert.vue";
+import LokasiService from '@/services/LokasiService';
+import AddLocationForm from '@/components/AddLocationForm.vue';
+import CustomAlert from './CustomAlert.vue';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
 
-
-
 export default {
-  name: "LokasiListVue",
+  name: 'LokasiListVue',
   data() {
     return {
       isLogin: IsLoginUser != null ? IsLoginUser.isLogin : false,
@@ -107,9 +115,9 @@ export default {
     removeLokasi(id) {
       this.$swal
         .fire({
-          title: "Apakah anda yakin?",
-          text: "Anda tidak dapat mengembalikan data yang sudah terhapus!",
-          icon: "warning",
+          title: 'Apakah anda yakin?',
+          text: 'Anda tidak dapat mengembalikan data yang sudah terhapus!',
+          icon: 'warning',
           buttons: true,
           showConfirmButton: true,
           showCancelButton: true,
@@ -120,7 +128,7 @@ export default {
             LokasiService.delete(id)
               .then((response) => {
                 CustomAlert.fire({
-                  icon: "warning",
+                  icon: 'warning',
                   title: response.data.message,
                 });
                 this.loadData();
