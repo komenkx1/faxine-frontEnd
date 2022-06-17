@@ -8,6 +8,9 @@ class LokasiService {
       
       return http.get(`/lokasi/${id}`);
     }
+    search(query) {
+      return http.get("/lokasi/search?query=" + query);
+    }
     create(data) {
       return http.post("/lokasi", data);
     }

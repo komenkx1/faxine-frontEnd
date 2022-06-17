@@ -278,6 +278,5 @@
 <script>
 export default {
     name: 'BeritaVue',
-
 }
 </script>
