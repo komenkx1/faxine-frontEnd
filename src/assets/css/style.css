@@ -13,6 +13,7 @@ Table of content
 10. footer
 -------------------------------------------------------------------*/
 /*------ Typography Style Start ------*/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
 body {
   color: #151515;
   line-height: 1.7;
@@ -3634,6 +3635,35 @@ textarea:focus {
 
 .critical-statistic-color{
   color: #f6b42e;
+}
+@keyframes pulse-bg {
+  0% { background-color: #ddd; }
+  50% { background-color: #d0d0d0; }
+  100% { background-color: #ddd; }
+}
+
+.content-lokasi-skeleton{
+    background-color: #ddd;
+    height: 30px;
+     animation: pulse-bg 1s infinite;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.icon-skeleton{
+  background-color: #ddd;
+    height: 30px;
+     animation: pulse-bg 1s infinite;
+    border-radius: 5px;
+    width: 30px;
+}
+.button-skeleton{
+  background-color: #ddd;
+    height: 30px;
+     animation: pulse-bg 1s infinite;
+    border-radius: 5px;
 }
 
 /*----- footer section end -----*/

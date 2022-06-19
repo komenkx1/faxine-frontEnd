@@ -20,19 +20,19 @@
                 </div>
             </div>
             <!-- breadcrumb section end -->
-            <BeritaList/>
+            <BeritaDetail/>
         </main>
     </div>
 </template>
 <script>
-import BeritaList from '@/components/BeritaList.vue';
+import BeritaDetail from '@/components/BeritaDetail.vue';
 import CustomAlert from '@/components/CustomAlert.vue';
 // import { Swal } from "sweetalert2/dist/sweetalert2";
 
 export default {
     name: 'BeritaVue',
 
-    components: { BeritaList },
+    components: { BeritaDetail },
 
     methods: {
         async showAlert() {

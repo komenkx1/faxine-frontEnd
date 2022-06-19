@@ -1,3 +1,4 @@
+
 <template>
   <AddLocationForm :lokasis="lokasi" v-if="isShowForm || isEdit" />
 
@@ -5,57 +6,57 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header d-flex">
-            <h4 class="w-100 card-title">Lokasi Vaksin</h4>
-            <button
-              class="w-25 btn btn-primary"
-              v-if="!isShowForm"
-              @click="showAddForm"
-            >
-              Buat Informasi Baru
-            </button>
-            <button class="w-25 btn btn-danger" v-else @click="showAddForm">
-              Tutup Form
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead class="text-body">
-                  <th>No</th>
-                  <th>Lokasi Vaksin</th>
-                  <th>Tanggal Mulai</th>
-                  <th v-if="isLogin">Action</th>
-                </thead>
-                <tbody>
-                  <tr v-for="(lokasi, index) in lokasiDatas" :key="lokasi.id">
-                    <td>
-                      {{ index + 1 }}
-                    </td>
+          <div class="card-header">
+            <div class="row  align-items-center justify-content-between">
+            <div class="col-md-8 col-12">
 
-                    <td>
-                      {{ lokasi.alamat }}
-                    </td>
-                    <td>
-                      {{ lokasi.tanggal_mulai }}
-                    </td>
-                    <td v-if="isLogin">
-                      <button
-                        class="btn btn-success"
-                        @click="getById(lokasi.id)"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        class="btn btn-danger"
-                        @click="removeLokasi(lokasi.id)"
-                      >
-                        Remove
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <button class="w-100 w-lg-50 btn btn-primary mb-2 mb-md-0" v-if="!isShowForm" @click="showAddForm">
+                Buat Lokasi Baru
+              </button>
+              <button class="w-100 w-lg-50 btn btn-danger" v-else @click="showAddForm">
+                Tutup Form
+              </button>
+            </div>
+            <div class="col-md-4">
+              <input type="text" class="w-100 form-control" placeholder="cari lokasi" v-model="search"
+                @keyup="loadDataSearchData">
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-lokasi mt-4 ">
+          <LokasiSkeleton v-if="isLoading" />
+          <div class="card mt-3" v-for="(lokasi) in lokasiDatas" :key="lokasi.id" v-else>
+            <div class="card-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-10">
+                    <div class="d-flex align-items-center mt-2">
+                      <i class="fa-solid fa-map-pin"></i>
+                      <p class="ml-4 font-weight-bolder">{{ lokasi.alamat }}</p>
+                    </div>
+                    <div class="d-flex align-items-center mt-2">
+                      <i class="fa-solid fa-clock"></i>
+                      <p class="ml-3"> {{ lokasi.tanggal_mulai }} - {{ lokasi.tanggal_berakhir }}</p>
+                    </div>
+                    <div class="d-flex align-items-center mt-2">
+                      <i class="fa-solid fa-user"></i>
+                      <p class="ml-3"> {{ lokasi.nama_masyarakat }}</p>
+                    </div>
+
+                  </div>
+                  <div class="col-12 col-lg-1 col-md-2" v-if="isLogin">
+                    <hr class="d-md-none d-block">
+                    <div class="action-button">
+                      <button class="btn btn-success m-md-2 mt-2 w-100" @click="getById(lokasi.id)"><i
+                          class="fa-solid fa-pen"></i></button>
+                      <button class="btn btn-danger m-md-2 mt-2 w-100" @click="removeLokasi(lokasi.id)"><i
+                          class="fa-solid fa-trash"></i></button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -68,7 +69,9 @@
 import LokasiService from '@/services/LokasiService';
 import AddLocationForm from '@/components/AddLocationForm.vue';
 import CustomAlert from './CustomAlert.vue';
+import LokasiSkeleton from './LokasiSkeleton.vue';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
+undefined
 
 export default {
   name: 'LokasiListVue',
@@ -79,6 +82,8 @@ export default {
       lokasi: {},
       isShowForm: false,
       isEdit: false,
+      search: "",
+      isLoading: false,
     };
   },
   methods: {
@@ -92,9 +97,29 @@ export default {
     },
 
     async loadData() {
+      this.isLoading = true;
       LokasiService.getAll()
         .then((response) => {
           this.lokasiDatas = response.data.data;
+          this.isLoading = false;
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+
+    async loadDataSearchData() {
+      this.isLoading = true;
+      LokasiService.search(this.search)
+        .then((response) => {
+          if (this.search) {
+
+            this.lokasiDatas = response.data.data
+            this.isLoading = false;
+
+          } else {
+            this.loadData();
+          }
         })
         .catch((e) => {
           console.log(e);
@@ -146,6 +171,6 @@ export default {
   mounted() {
     this.loadData();
   },
-  components: { AddLocationForm },
+  components: { AddLocationForm, LokasiSkeleton },
 };
 </script>
