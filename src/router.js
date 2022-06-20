@@ -3,6 +3,7 @@ import Home from './views/Home.vue';
 import Informasi from './views/Informasi.vue';
 import Statistik from './views/Statistik.vue';
 import Berita from './views/Berita.vue';
+import BeritaDetail from './views/BeritaDetail.vue';
 import TentangKami from './views/Tentang-Kami.vue';
 import Login from './views/Login.vue';
 import Register from './views/Register.vue';
@@ -48,6 +49,11 @@ const routes = [
     path: '/Register',
     name: 'Register',
     component: Register,
+  },
+  {
+    path: "/Berita/:id",
+    name: "BeritaDetail",
+    component: BeritaDetail,
   },
 ];
 
