@@ -2,7 +2,10 @@
   <div>
     <main>
       <!-- breadcrumb section start -->
-      <div class="breadcrumb-area bg-img" data-bg="assets/img/banner/page-banner.jpg">
+      <div
+        class="breadcrumb-area bg-img"
+        data-bg="assets/img/banner/page-banner.jpg"
+      >
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -27,7 +30,6 @@
 
       <!-- Login -->
       <FormLoginVue />
-
       <!-- End Login -->
     </main>
   </div>
