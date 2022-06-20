@@ -1,63 +1,71 @@
 <template>
   <section class="form section-padding">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-5 order-2 order-lg-1">
-          <div class="card">
-            <form action="" class="p-3">
-              <div class="form-group">
-                <label for="">Email</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Masukan Email Anda"
-                  id="email"
-                  required
-                  v-model="register.email"
-                  name="email"
-                />
-              </div>
-              <div class="form-group">
-                <label for="">Nama</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Masukan name"
-                  id="name"
-                  required
-                  v-model="register.name"
-                  name="name"
-                />
-              </div>
-              <div class="form-group">
-                <label for="">No HP</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Masukan No HP"
-                  id="no_hp"
-                  required
-                  v-model="register.no_hp"
-                  name="no_hp"
-                />
-              </div>
-              <div class="form-group">
-                <label for="">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  placeholder="Masukan Password"
-                  id="password"
-                  required
-                  v-model="register.password"
-                  name="password"
-                />
-              </div>
-              <button @click="isRegister" type="button" class="btn btn-primary">
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <form
+            action=""
+            style="width: 60%; margin: 0 auto"
+            class="border border-success p-3 rounded-lg"
+          >
+            <div class="form-group">
+              <label class="sr-only" for="email">Email</label>
+              <input
+                type="email"
+                class="form-control form-control-lg"
+                placeholder="masukkan email"
+                id="email"
+                required
+                v-model="register.email"
+                name="email"
+              />
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="name">Nama</label>
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="masukkan nama"
+                id="name"
+                required
+                v-model="register.name"
+                name="name"
+              />
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="no_hp">No HP</label>
+              <input
+                type="number"
+                class="form-control form-control-lg"
+                placeholder="masukan no hp"
+                id="no_hp"
+                required
+                v-model="register.no_hp"
+                name="no_hp"
+              />
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="password">Password</label>
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                placeholder="masukkan password"
+                id="password"
+                required
+                v-model="register.password"
+                name="password"
+              />
+            </div>
+            <div class="d-flex justify-content-center">
+              <button
+                @click="isRegister"
+                type="button"
+                class="btn btn-primary btn-lg"
+              >
                 register
               </button>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

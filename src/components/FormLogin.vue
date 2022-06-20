@@ -1,40 +1,47 @@
 <template>
   <section class="form section-padding">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-5 order-2 order-lg-1">
-          <div class="card">
-            <form action="" class="p-3">
-              <div class="form-group">
-                <label for="">Email</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Masukan Email Anda"
-                  id="email"
-                  required
-                  v-model="login.email"
-                  name="email"
-                />
-              </div>
-              <div class="form-group">
-                <label for="">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  placeholder="Masukan Password"
-                  id="password"
-                  required
-                  v-model="login.password"
-                  name="password"
-                />
-              </div>
-              <button @click="isLogin" type="button" class="btn btn-primary">
-                login
-              </button>
-            </form>
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <form
+          action=""
+          style="width: 60%; margin: 0 auto"
+          class="border border-success p-3 rounded-lg"
+        >
+          <div class="form-group">
+            <label class="sr-only" for="email">Email</label>
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="masukkan email"
+              id="email"
+              required
+              v-model="login.email"
+              name="email"
+              autofocus
+            />
           </div>
-        </div>
+          <div class="form-group">
+            <label class="sr-only" for="password">Password</label>
+            <input
+              type="password"
+              class="form-control form-control-lg"
+              placeholder="masukkan password"
+              id="password"
+              required
+              v-model="login.password"
+              name="password"
+            />
+          </div>
+          <div class="d-flex justify-content-center">
+            <button
+              @click="isLogin"
+              type="button"
+              class="btn btn-primary btn-lg"
+            >
+              login
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
