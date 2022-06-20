@@ -11,19 +11,14 @@
                   v-model="berita.judul" name="judul" />
               </div>
               <div class="form-group">
-                <label for="">Slug</label>
-                <input type="text" class="form-control" placeholder="Masukkan Slug" id="slug"
-                  required v-model="berita.slug" name="slug" />
-              </div>
-              <div class="form-group">
                 <label for="">Content Berita</label>
-                <textarea class="form-control" placeholder="Masukan Content Berita"
-                  id="content" required v-model="berita.content" name="content"></textarea>
+                <textarea class="form-control" placeholder="Masukan Content Berita" id="content" required
+                  v-model="berita.content" name="content"></textarea>
               </div>
               <div class="form-group">
                 <label for="">Cover</label>
-                <input type="text" class="form-control" placeholder="Masukkan Url Gambar"
-                 id="cover" required v-model="berita.cover" name="cover" />
+                <input type="text" class="form-control" placeholder="Masukkan Url Gambar" id="cover" required
+                  v-model="berita.cover" name="cover" />
               </div>
               <button v-if="isEdit" @click="updateBerita" type="button" class="btn btn-primary">
                 Update
@@ -41,6 +36,7 @@
 <script>
 import BeritaService from "@/services/BeritaService";
 import CustomAlert from "./CustomAlert.vue";
+import AuthServices from "@/services/AuthServices";
 export default {
   name: "AddBeritaVue",
   props: ["beritas"],
@@ -49,20 +45,19 @@ export default {
     return {
       berita: {
         judul: "",
-        slug: "",
         content: "",
         cover: "",
       },
       isEdit: false,
+      id_user: 0,
     };
   },
+
   methods: {
     saveBerita() {
-      console.log(this.$parent);
       var data = {
-        id_user:1,
+        id_user: this.id_user,
         judul: this.berita.judul,
-        slug: this.berita.slug,
         content: this.berita.content,
         cover: this.berita.cover,
       };
@@ -75,12 +70,22 @@ export default {
           this.berita = {};
           this.$parent.loadData();
         })
-        .catch((e) => {
-          if (e.response.data.message != null) {
-            CustomAlert.fire({
-              icon: "error",
-              title: e.response.data.message,
-            });
+        .catch(async (e) => {
+          if (e.response.data != null) {
+            let errorValue = []
+            let errorKey = []
+            //convert error object value to array
+            for (let i = 0; i < Object.keys(e.response.data).length; i++) {
+              errorKey.push(Object.keys(e.response.data)[i])
+              errorValue.push(Object.values(e.response.data[errorKey[i]]))
+            }
+            //itterate the error array to show the error message
+            for (let i = 0; i < errorValue.length; i++) {
+              await CustomAlert.fire({
+                icon: "error",
+                title: errorValue[i],
+              });
+            }
           } else {
             CustomAlert.fire({
               icon: "error",
@@ -102,7 +107,7 @@ export default {
           this.$parent.loadData();
           this.$parent.isShowForm = false;
           this.isEdit = false;
-
+           this.$router.push({path:"/Berita"})
         })
         .catch((e) => {
           if (e.response.data.message != null) {
@@ -130,6 +135,11 @@ export default {
     },
   },
   mounted() {
+    AuthServices.profile().then((response) => {
+      this.id_user = response.data.id
+    }).catch((e) => {
+      console.log(e);
+    });
     this.loadEditData();
     if (this.berita.id != null) {
       this.isEdit = true;

@@ -30,6 +30,11 @@ class AuthServices {
       password,
     });
   }
+
+  profile() {
+    return httpCommon.get('/profile', {
+    });
+  }
 }
 
 export default new AuthServices();

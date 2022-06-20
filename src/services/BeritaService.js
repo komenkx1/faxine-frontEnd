@@ -29,6 +29,19 @@ class BeritaService {
       
       return http.get(`/berita/${id}`);
     }
+
+    getBySlug(slug) {
+      return http.get(`/berita/${slug}`);
+    }
+
+    getPerPage(page) {
+      return http.get(`/berita?page=${page}`);
+    }
+
+    search(query) {
+      return http.get("/berita/search?query=" + query);
+    }
+    
     create(data) {
       return http.post("/berita", data);
     }
