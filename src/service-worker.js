@@ -2,14 +2,14 @@ import 'regenerator-runtime'
 import {setCacheNameDetails, skipWaiting, clientsClaim} from 'workbox-core'
 import {precacheAndRoute} from 'workbox-precaching'
 import {registerRoute} from 'workbox-routing'
-import {NetworkFirst, StaleWhileRevalidate} from 'workbox-strategies'
+import {CacheFirst, StaleWhileRevalidate, NetworkFirst} from 'workbox-strategies'
 import {CacheableResponsePlugin} from 'workbox-cacheable-response'
 import {ExpirationPlugin} from 'workbox-expiration'
 
 skipWaiting()
 clientsClaim()
 // inside src/service-worker.js 
-setCacheNameDetails({prefix:  "faxine-cahce"});
+setCacheNameDetails({prefix:  "simple-vue-project"});
 precacheAndRoute(self.__WB_MANIFEST, {
   ignoreUrlParametersMatching: [/.*/],
 })
@@ -17,7 +17,7 @@ precacheAndRoute(self.__WB_MANIFEST, {
 
 registerRoute(
     ({url}) => url.origin,
-    new StaleWhileRevalidate({
+    new NetworkFirst({
       plugins: [
         new CacheableResponsePlugin({
           statuses: [0, 200],
@@ -28,7 +28,7 @@ registerRoute(
 
 registerRoute(
     ({request}) => request.destination === 'image',
-    new NetworkFirst({
+    new CacheFirst({
       cacheName: 'images',
       plugins: [
         new ExpirationPlugin({
@@ -37,6 +37,18 @@ registerRoute(
         }),
       ],
     }),
+)
+registerRoute(
+  ({request}) => request.destination === 'css',
+  new CacheFirst({
+    cacheName: 'css',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  }),
 )
 
 registerRoute(
@@ -48,7 +60,7 @@ registerRoute(
 
 registerRoute(
     ({url}) => url.origin === 'https://fonts.gstatic.com',
-    new NetworkFirst({
+    new CacheFirst({
       cacheName: 'google-fonts-webfonts',
       plugins: [
         new CacheableResponsePlugin({
@@ -61,3 +73,4 @@ registerRoute(
       ],
     }),
 )
+

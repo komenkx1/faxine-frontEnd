@@ -12,7 +12,7 @@
                                     <div class="col-xl-5 col-sm-6">
                                         <div class="hero-slider-content">
                                             <h1 class="slide-title">Ayo Segera Lakukan Vaksinasi Covid-19</h1>
-                                            <a href="#informasi" class="btn btn-danger mt-4">Selengkapnya</a>
+                                            <a href="#informasi" class="btn btn-danger mt-4 p-3">Selengkapnya</a>
                                         </div>
                                     </div>
                                     <div class="col-xl-7 col-sm-6">
