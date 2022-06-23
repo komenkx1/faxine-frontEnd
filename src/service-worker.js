@@ -9,7 +9,7 @@ import {ExpirationPlugin} from 'workbox-expiration'
 skipWaiting()
 clientsClaim()
 // inside src/service-worker.js 
-setCacheNameDetails({prefix:  "simple-vue-project"});
+setCacheNameDetails({prefix:  "faxine"});
 precacheAndRoute(self.__WB_MANIFEST, {
   ignoreUrlParametersMatching: [/.*/],
 })
@@ -74,3 +74,10 @@ registerRoute(
     }),
 )
 
+// self.addEventListener('push', (event) => {
+//   const title = 'Faxine Push Notification'
+//   const options = {
+//     body: event.data.text(),
+//   }
+//   event.waitUntil(self.registration.showNotification(title, options))
+// })

@@ -55,27 +55,33 @@ undefined
 
 export default {
   name: 'LokasiListVue',
-  props: ["query"],
+  props: ["query","itemCount"],
   data() {
     return {
       isLogin: IsLoginUser != null ? IsLoginUser.isLogin : false,
       lokasiDatas: [],
       isLoading: false,
+
     };
   },
   methods: {
-
 
     async loadData() {
       this.isLoading = true;
       LokasiService.getAll()
         .then((response) => {
-          this.lokasiDatas = response.data.data;
+          if ( this.itemCount > 0 ) {
+            this.itemCount+1;
+            this.lokasiDatas = response.data.data.slice(0, this.itemCount)
+          } else {
+            this.lokasiDatas = response.data.data
+          }
           this.isLoading = false;
         })
         .catch((e) => {
           console.log(e);
         });
+
     },
 
     async loadDataSearchData() {

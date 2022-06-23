@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                    <LokasiList />
+                    <LokasiList :item-count="4" />
                 </div>
             </section>
             <!-- informasi vaksin section end -->
