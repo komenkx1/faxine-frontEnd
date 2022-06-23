@@ -14,8 +14,8 @@
                 </div>
                 <div class="widget-body">
                   <p class="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.
+                    Faxine merupakan sebuah platform yang dibuat untuk membantu 
+                    masyarakat yang ingin melakukan vaksinasi guna mencegah penyebaran covid-19.
                   </p>
                 </div>
               </div>

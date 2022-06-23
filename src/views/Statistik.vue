@@ -2,16 +2,16 @@
     <div>
         <main>
             <!-- breadcrumb section start -->
-            <div class="breadcrumb-area bg-img" data-bg="assets/img/banner/page-banner.jpg">
+            <div class="breadcrumb-area bg-img bg-img-data">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="breadcrumb-wrap">
                                 <nav aria-label="breadcrumb">
-                                    <h2 class="breadcrumb-title">Service</h2>
+                                    <h2 class="breadcrumb-title">Data</h2>
                                     <ul class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Service</li>
+                                        <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Data</li>
                                     </ul>
                                 </nav>
                             </div>
@@ -20,9 +20,9 @@
                 </div>
             </div>
             <!-- breadcrumb section end -->
-            <section class="content container">
+            <section class="content container mb-5 mt-5">
                 <div class="header-content">
-                    <h1 class="font-weight-bolder">Pantau informasi COVID-19 secara tepat dan akurat.</h1>
+                    <h1 class="font-weight-bolder">Pantau informasi COVID-19 secara tepat dan akurat</h1>
                 </div>
                 <hr>
                 <div class="row">

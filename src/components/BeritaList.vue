@@ -5,8 +5,6 @@
     <div class="row">
       <div class="col-md-12">
         <div class=" d-flex">
-          <h4 class="w-100 card-title">Berita</h4>
-
           <button class="w-25 btn btn-primary" v-if="!isShowForm && isLogin" @click="showAddForm">
             Tambahkan Berita Baru
           </button>

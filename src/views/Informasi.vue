@@ -2,7 +2,7 @@
   <div>
     <main>
       <!-- breadcrumb section start -->
-      <div class="breadcrumb-area bg-img" data-bg="../assets/img/banner/informasi-banner.jpg">
+      <div class="breadcrumb-area bg-img bg-img-informasi">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -10,12 +10,8 @@
                 <nav aria-label="breadcrumb">
                   <h2 class="breadcrumb-title">Informasi</h2>
                   <ul class="breadcrumb">
-                    <li class="breadcrumb-item">
-                      <router-link to="/">Home</router-link>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                      Informasi
-                    </li>
+                    <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
+                    <li class="breadcrumb-item active" aria-current="page">Informasi</li>
                   </ul>
                 </nav>
               </div>
@@ -24,7 +20,7 @@
         </div>
       </div>
       <!-- breadcrumb section end -->
-      <div class="container">
+      <div class="container mt-5">
         <div id="form-lokasi">
           <AddLocationForm :lokasis="lokasi" v-if="isShowForm || isEdit" />
         </div>
@@ -82,15 +78,15 @@ export default {
       } else {
         this.lokasi = {};
         this.isShowForm = true;
-          //scroll to top
-          var element = document.getElementById('form-lokasi');
-          var headerOffset = 45;
-          var elementPosition = element.getBoundingClientRect().top;
-          var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-          });
+        //scroll to top
+        var element = document.getElementById('form-lokasi');
+        var headerOffset = 45;
+        var elementPosition = element.getBoundingClientRect().top;
+        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
       }
     },
     setIsShowForm(value) {

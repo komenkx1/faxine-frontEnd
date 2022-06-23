@@ -2,16 +2,16 @@
     <div>
         <main>
             <!-- breadcrumb section start -->
-            <div class="breadcrumb-area bg-img" data-bg="assets/img/banner/page-banner.jpg">
+            <div class="breadcrumb-area bg-img bg-img-berita">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="breadcrumb-wrap">
                                 <nav aria-label="breadcrumb">
-                                    <h2 class="breadcrumb-title">Blog</h2>
+                                    <h2 class="breadcrumb-title">Berita</h2>
                                     <ul class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blog Left Sidebar</li>
+                                        <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Berita</li>
                                     </ul>
                                 </nav>
                             </div>
