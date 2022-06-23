@@ -7,8 +7,9 @@
             <form action="" class="p-5">
               <div class="form-group">
                 <label for="">Nama</label>
-                <input type="text" :disabled="isLoadingform ? true : false" class="form-control" placeholder="Masukan Nama Anda"
-                  id="nama_masyarakat" required v-model="lokasi.nama_masyarakat" name="nama_masyarakat" />
+                <input type="text" :disabled="isLoadingform ? true : false" class="form-control"
+                  placeholder="Masukan Nama Anda" id="nama_masyarakat" required v-model="lokasi.nama_masyarakat"
+                  name="nama_masyarakat" />
               </div>
               <div class="form-group">
                 <label for="">Lokasi Vaksin</label>
@@ -88,7 +89,8 @@ export default {
           });
           this.isLoadingform = false;
           this.lokasi = {};
-          this.$parent.loadData();
+          this.$parent.refeshDataList();
+
         })
         .catch((e) => {
           if (e.response.data.message != null) {
@@ -108,6 +110,7 @@ export default {
     },
 
     updateLokasi() {
+      this.isLoadingform = true;
       LokasiService.update(this.lokasi.id, this.lokasi)
         .then(() => {
           CustomAlert.fire({
@@ -115,7 +118,8 @@ export default {
             title: "Data Berhasil Diperbarui",
           });
           this.lokasi = {};
-          this.$parent.loadData();
+          this.isLoadingform = false;
+          this.$parent.refeshDataList();
           this.$parent.isShowForm = false;
           this.isEdit = false;
 
@@ -133,6 +137,8 @@ export default {
                 "Terdapat Field Yang Belum lengkap! Silahkan Lengkapi Field Yang Tersedia",
             });
           }
+          this.isLoadingform = false;
+
         });
     },
     formatDate(date) {

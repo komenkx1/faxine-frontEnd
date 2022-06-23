@@ -1,29 +1,10 @@
 
 <template>
-  <AddLocationForm :lokasis="lokasi" v-if="isShowForm || isEdit" />
 
   <div class="container mb-5">
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <div class="row  align-items-center justify-content-between">
-            <div class="col-md-8 col-12">
 
-              <button class="w-100 w-lg-50 btn btn-primary mb-2 mb-md-0" v-if="!isShowForm" @click="showAddForm">
-                Buat Lokasi Baru
-              </button>
-              <button class="w-100 w-lg-50 btn btn-danger" v-else @click="showAddForm">
-                Tutup Form
-              </button>
-            </div>
-            <div class="col-md-4">
-              <input type="text" class="w-100 form-control" placeholder="cari lokasi" v-model="search"
-                @keyup="loadDataSearchData">
-            </div>
-            </div>
-          </div>
-        </div>
         <div class="item-lokasi mt-4 ">
           <LokasiSkeleton v-if="isLoading" />
           <div class="card mt-3" v-for="(lokasi) in lokasiDatas" :key="lokasi.id" v-else>
@@ -67,7 +48,6 @@
 
 <script>
 import LokasiService from '@/services/LokasiService';
-import AddLocationForm from '@/components/AddLocationForm.vue';
 import CustomAlert from './CustomAlert.vue';
 import LokasiSkeleton from './LokasiSkeleton.vue';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
@@ -75,26 +55,16 @@ undefined
 
 export default {
   name: 'LokasiListVue',
+  props: ["query"],
   data() {
     return {
       isLogin: IsLoginUser != null ? IsLoginUser.isLogin : false,
       lokasiDatas: [],
-      lokasi: {},
-      isShowForm: false,
-      isEdit: false,
-      search: "",
       isLoading: false,
     };
   },
   methods: {
-    showAddForm() {
-      if (this.isShowForm) {
-        this.isShowForm = false;
-      } else {
-        this.lokasi = {};
-        this.isShowForm = true;
-      }
-    },
+
 
     async loadData() {
       this.isLoading = true;
@@ -110,9 +80,9 @@ export default {
 
     async loadDataSearchData() {
       this.isLoading = true;
-      LokasiService.search(this.search)
+      LokasiService.search(this.query)
         .then((response) => {
-          if (this.search) {
+          if (this.query) {
 
             this.lokasiDatas = response.data.data
             this.isLoading = false;
@@ -126,11 +96,11 @@ export default {
         });
     },
     getById(id) {
-      this.isShowForm = false;
+      this.$emit('isShowForm', false);
       LokasiService.get(id)
         .then((response) => {
-          this.lokasi = response.data.data;
-          this.isShowForm = true;
+          this.$emit('lokasis', response.data.data);
+          this.$emit('isShowForm', true);
         })
         .catch((e) => {
           console.log(e);
@@ -171,6 +141,6 @@ export default {
   mounted() {
     this.loadData();
   },
-  components: { AddLocationForm, LokasiSkeleton },
+  components: { LokasiSkeleton },
 };
 </script>
