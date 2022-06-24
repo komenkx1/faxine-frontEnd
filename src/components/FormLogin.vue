@@ -36,7 +36,7 @@
             <button
               @click="isLogin"
               type="button"
-              class="btn btn-primary btn-lg"
+              class="btn btn-primary btn-lg p-2"
             >
               login
             </button>

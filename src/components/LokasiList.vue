@@ -26,12 +26,12 @@
                     </div>
 
                   </div>
-                  <div class="col-12 col-lg-1 col-md-2" v-if="isLogin">
+                  <div class="col-12 col-lg-1 col-md-2" v-if="isLogin && !isHome">
                     <hr class="d-md-none d-block">
                     <div class="action-button">
-                      <button class="btn btn-success m-md-2 mt-2 w-100" @click="getById(lokasi.id)"><i
+                      <button class="btn btn-success m-md-2 mt-2 w-100 p-2" @click="getById(lokasi.id)"><i
                           class="fa-solid fa-pen"></i></button>
-                      <button class="btn btn-danger m-md-2 mt-2 w-100" @click="removeLokasi(lokasi.id)"><i
+                      <button class="btn btn-danger m-md-2 mt-2 w-100 p-2" @click="removeLokasi(lokasi.id)"><i
                           class="fa-solid fa-trash"></i></button>
                     </div>
 
@@ -55,7 +55,7 @@ undefined
 
 export default {
   name: 'LokasiListVue',
-  props: ["query","itemCount"],
+  props: ["query","itemCount","isHome"],
   data() {
     return {
       isLogin: IsLoginUser != null ? IsLoginUser.isLogin : false,

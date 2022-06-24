@@ -60,7 +60,7 @@
               <button
                 @click="isRegister"
                 type="button"
-                class="btn btn-primary btn-lg"
+                class="btn btn-primary btn-lg p-2"
               >
                 register
               </button>

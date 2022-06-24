@@ -42,7 +42,7 @@
                 <!-- widget item start -->
                 <div class="blog-widget mt-40">
                   <h4 class="blog-widget-title">Search</h4>
-                  <form class="widget-search-form" id="myForm" @submit="searchData">
+                  <form class="widget-search-form" id="myForm" v-on:submit.prevent="searchData">
                     <input placeholder="Search keyword" type="text" class="search-field" v-model="search">
                     <button type="button" @click="searchData()" class="search-btn"><i
                         class="fa fa-search"></i></button>
@@ -100,8 +100,7 @@ data() {
         this.isShowForm = true;
       }
     },
-        async searchData(e) {
-        e.preventDefault();
+        async searchData() {
       //emit search function on list component
       await this.$refs.lokasiData.loadDataSearchData();
     },
