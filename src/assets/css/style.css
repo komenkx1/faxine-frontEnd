@@ -1,4 +1,5 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+/* @import url('/node_modules/bootstrap/dist/css/bootstrap.min.css'); */
 body {
   color: #151515;
   line-height: 1.7;
@@ -2773,8 +2774,8 @@ textarea:focus {
   display: block;
 }
 .center-cropped {
-  display: block;
-  width: 384px; height: 300px; object-fit: cover
+   height: 300px; 
+   object-fit: cover
 }
 
 .blog-content {
