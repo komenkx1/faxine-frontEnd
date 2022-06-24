@@ -7,12 +7,9 @@ import BeritaDetail from './views/BeritaDetail.vue';
 import TentangKami from './views/Tentang-Kami.vue';
 import Login from './views/Login.vue';
 import Register from './views/Register.vue';
-
-// lazy-loaded
-// const Profile = () => import("./components/Profile.vue")
-// const BoardAdmin = () => import("./views/Admin.vue")
-// const BoardModerator = () => import("./components/BoardModerator.vue")
-// const BoardUser = () => import("./components/BoardUser.vue")
+import VueRouteMiddleware from 'vue-route-middleware';
+import IsLoginUser from '@/helper/CheckIsloginHelper';
+let auth = IsLoginUser != null ? IsLoginUser.isLogin : false;
 
 const routes = [
   {
@@ -44,11 +41,25 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: Login,
+    meta: {
+    middleware: (to, from, next) => {
+      if(auth){
+          next({ name: 'HomeVue' });
+      }
+    }
+  }
   },
   {
     path: '/Register',
     name: 'Register',
     component: Register,
+    meta: {
+      middleware: (to, from, next) => {
+          if(!auth){
+              next({ name: 'Login' });
+          }
+        }
+      }
   },
   {
     path: "/Berita/:id",
@@ -62,4 +73,5 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach(VueRouteMiddleware());
 export default router;

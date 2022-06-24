@@ -21,6 +21,7 @@
     "node-sass": "^7.0.1",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
+    "vue-route-middleware": "^1.0.7",
     "vue-router": "^4.0.15",
     "vue-sweetalert2": "^5.0.5",
     "workbox-webpack-plugin": "^6.5.3"
