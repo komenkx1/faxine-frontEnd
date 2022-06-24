@@ -152,6 +152,12 @@ img {
   background-repeat: no-repeat;
 }
 
+@media only screen and (max-width: 767.98px) {
+  .bg-img{
+    margin-top: 0;
+  }
+}
+
 .bg-img-tentang-kami {
   background-image: url('/src/assets/img/banner/tentang-kami.jpg');
 }
@@ -822,7 +828,8 @@ textarea:focus {
 }
 
 .mobile-menu li > a:hover {
-  color: #151515;
+  color: #ff415b ;
+  text-decoration: none;
 }
 
 .mobile-menu li ul li {
@@ -1170,7 +1177,7 @@ textarea:focus {
 .section-title {
   max-width: 1000px;
   margin: auto;
-  margin-bottom: 68px;
+  margin-bottom: 0px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
@@ -1184,6 +1191,25 @@ textarea:focus {
   font-weight: 600;
   display: inline;
 }
+
+@media only screen and (max-width: 767.98px) {
+  .section-title .title {
+    font-size: 25px;
+  }
+  .section-title p {
+    font-size: 25px;
+  }
+  .title-active {
+    font-size: 25px !important;
+  }
+}
+
+@media only screen and (max-width: 767.98px) {
+  .font-weight-bolder{
+    font-size: 30px !important;
+  }
+}
+
 
 .title-active {
   padding-bottom: 15px;
@@ -2797,6 +2823,11 @@ textarea:focus {
 
 .blog-meta:hover a {
   color: #151515;
+}
+
+.blog-meta a {
+  color: #00baa0;
+  text-decoration: none !important;
 }
 
 .blog-content.blog-details .blog-title {

@@ -63,10 +63,10 @@
                             <div class="team-content team-content--style_2 about-inner">
                                 <h2 class="h1 title">Our <p class="title-active">Team</p>
                                 </h2>
-                                <p>labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
-                                    quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ex ea commodi
-                                    consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                                    quam</p>
+                                <p>Kami tergabung dalam tim dari CPSG-73 dalam program MSIB Dicoding Front End 
+                                    dan Back End Developer. Website Faxine ini dapat dihasilkan dari kolaborasi 
+                                    yang kami lakukan dalam tim ini. Tentunya diharapkan website ini dapat bermanfaat 
+                                    bagi masyarakat dan juga dapat membantu mengurangi penyebaran Covid 19.</p>
                             </div>
                         </div>
                     </div>
