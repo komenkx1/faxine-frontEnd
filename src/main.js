@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import 'bootstrap/dist/css/bootstrap.css';
+import './assets/css/styles.scss';
 import router from './router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import VueSweetalert2 from 'vue-sweetalert2';

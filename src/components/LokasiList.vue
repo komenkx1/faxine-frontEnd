@@ -7,6 +7,7 @@
 
         <div class="item-lokasi mt-4 ">
           <LokasiSkeleton v-if="isLoading" />
+          <h3 class="text-center" v-else-if="lokasiDatas.length == 0">Data Tidak Ditemukan</h3>
           <div class="card mt-3" v-for="(lokasi) in lokasiDatas" :key="lokasi.id" v-else>
             <div class="card-body">
               <div class="container">
@@ -26,12 +27,12 @@
                     </div>
 
                   </div>
-                  <div class="col-12 col-lg-1 col-md-2" v-if="isLogin">
+                  <div class="col-12 col-lg-1 col-md-2" v-if="isLogin && !isHome">
                     <hr class="d-md-none d-block">
                     <div class="action-button">
-                      <button class="btn btn-success m-md-2 mt-2 w-100" @click="getById(lokasi.id)"><i
+                      <button class="btn btn-success m-md-2 mt-2 w-100 p-2" @click="getById(lokasi.id)"><i
                           class="fa-solid fa-pen"></i></button>
-                      <button class="btn btn-danger m-md-2 mt-2 w-100" @click="removeLokasi(lokasi.id)"><i
+                      <button class="btn btn-danger m-md-2 mt-2 w-100 p-2" @click="removeLokasi(lokasi.id)"><i
                           class="fa-solid fa-trash"></i></button>
                     </div>
 
@@ -55,27 +56,33 @@ undefined
 
 export default {
   name: 'LokasiListVue',
-  props: ["query"],
+  props: ["query","itemCount","isHome"],
   data() {
     return {
       isLogin: IsLoginUser != null ? IsLoginUser.isLogin : false,
       lokasiDatas: [],
       isLoading: false,
+
     };
   },
   methods: {
-
 
     async loadData() {
       this.isLoading = true;
       LokasiService.getAll()
         .then((response) => {
-          this.lokasiDatas = response.data.data;
+          if ( this.itemCount > 0 ) {
+            this.itemCount+1;
+            this.lokasiDatas = response.data.data.slice(0, this.itemCount)
+          } else {
+            this.lokasiDatas = response.data.data
+          }
           this.isLoading = false;
         })
         .catch((e) => {
           console.log(e);
         });
+
     },
 
     async loadDataSearchData() {

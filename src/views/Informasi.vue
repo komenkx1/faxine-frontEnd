@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <LokasiList @isShowForm="setIsShowForm" @lokasis="setlokasiData" ref="lokasiData" :query="search" />
+      <LokasiList @isShowForm="setIsShowForm" @lokasis="setlokasiData" ref="lokasiData" :query="search" :is-home="false" />
     </main>
   </div>
 </template>
@@ -54,10 +54,6 @@
 
 import LokasiList from "@/components/LokasiList.vue";
 import AddLocationForm from "@/components/AddLocationForm.vue";
-// import { Swal } from "sweetalert2/dist/sweetalert2";
-
-
-
 
 export default {
   name: "InformasiVue",

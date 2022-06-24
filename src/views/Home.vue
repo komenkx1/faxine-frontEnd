@@ -12,7 +12,7 @@
                                     <div class="col-xl-5 col-sm-6">
                                         <div class="hero-slider-content">
                                             <h1 class="slide-title">Ayo Segera Lakukan Vaksinasi Covid-19</h1>
-                                            <a href="#informasi" class="btn btn-danger mt-4">Selengkapnya</a>
+                                            <a href="#informasi" class="btn btn-danger mt-4 p-3">Selengkapnya</a>
                                         </div>
                                     </div>
                                     <div class="col-xl-7 col-sm-6">
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                    <LokasiList />
+                    <LokasiList :item-count="4" :is-home="true"/>
                 </div>
             </section>
             <!-- informasi vaksin section end -->
@@ -99,74 +99,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mtn-30">
-                        <!-- blog single item start -->
-                        <div class="col-md-4">
-                            <div class="blog-item mt-30">
-                                <div class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="assets/img/blog/blog-1.jpg" alt="blog thumb">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h3 class="blog-title">
-                                        <a href="blog-details.html">Beneficial strategies</a>
-                                    </h3>
-                                    <p>Ideas es to obtain pain of itself, because it is pain, but because
-                                        occasionallyght ocean he Internet tend to a chunks as necessary with some of
-                                        themoment</p>
-                                    <div class="blog-meta">
-                                        <a href="#">25 October, 2019</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- blog single item end -->
-                        <!-- blog single item start -->
-                        <div class="col-md-4">
-                            <div class="blog-item mt-30">
-                                <div class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="assets/img/blog/blog-2.jpg" alt="blog thumb">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h3 class="blog-title">
-                                        <a href="blog-details.html">Themoment necsary</a>
-                                    </h3>
-                                    <p>Ideas es to obtain pain of itself, because it is pain, but because
-                                        occasionallyght ocean he Internet tend to a chunks as necessary with some of
-                                        themoment</p>
-                                    <div class="blog-meta">
-                                        <a href="#">25 October, 2019</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- blog single item end -->
-                        <!-- blog single item start -->
-                        <div class="col-md-4">
-                            <div class="blog-item mt-30">
-                                <div class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="assets/img/blog/blog-3.jpg" alt="blog thumb">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h3 class="blog-title">
-                                        <a href="blog-details.html">Because occasional</a>
-                                    </h3>
-                                    <p>Ideas es to obtain pain of itself, because it is pain, but because
-                                        occasionallyght ocean he Internet tend to a chunks as necessary with some of
-                                        themoment</p>
-                                    <div class="blog-meta">
-                                        <a href="#">25 October, 2019</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- blog single item end -->
-                    </div>
+
+                       <BeritaList :item-count="3" :is-home="true"/>
+
                 </div>
             </section>
             <br>
@@ -180,9 +115,10 @@
 <script>
 
 import LokasiList from "@/components/LokasiList.vue";
+import BeritaList from "@/components/BeritaList.vue";
 
 export default {
     name: 'HomeVue',
-    components: { LokasiList },
+    components: { LokasiList, BeritaList },
 }
 </script>

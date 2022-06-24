@@ -68,7 +68,7 @@ export default {
             title: "Data Berhasil Ditambahkan",
           });
           this.berita = {};
-          this.$parent.loadData();
+          this.$parent.refeshDataList();
         })
         .catch(async (e) => {
           if (e.response.data != null) {
@@ -102,11 +102,7 @@ export default {
             icon: "success",
             title: "Data Berhasil Diperbarui",
           });
-          console.log("masuk")
           this.berita = {};
-          this.$parent.loadData();
-          this.$parent.isShowForm = false;
-          this.isEdit = false;
            this.$router.push({path:"/Berita"})
         })
         .catch((e) => {

@@ -38,7 +38,7 @@
               <button v-if="isEdit" @click="updateLokasi" type="button" class="btn btn-primary">
                 Update
               </button>
-              <button v-else-if="!isEdit" @click="saveLokasi" type="button" class="btn btn-success">
+              <button v-else-if="!isEdit" @click="saveLokasi" type="button" class="btn btn-success p-2">
                 Submit
               </button>
             </form>
