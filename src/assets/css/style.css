@@ -2772,6 +2772,10 @@ textarea:focus {
 .blog-thumb a {
   display: block;
 }
+.center-cropped {
+  display: block;
+  width: 384px; height: 300px; object-fit: cover
+}
 
 .blog-content {
   padding-top: 18px;

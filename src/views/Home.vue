@@ -100,7 +100,7 @@
                         </div>
                     </div>
 
-                       <BeritaList :item-count="4" :is-home="true"/>
+                       <BeritaList :item-count="3" :is-home="true"/>
 
                 </div>
             </section>

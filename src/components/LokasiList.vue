@@ -7,6 +7,7 @@
 
         <div class="item-lokasi mt-4 ">
           <LokasiSkeleton v-if="isLoading" />
+          <h3 class="text-center" v-else-if="lokasiDatas.length == 0">Data Tidak Ditemukan</h3>
           <div class="card mt-3" v-for="(lokasi) in lokasiDatas" :key="lokasi.id" v-else>
             <div class="card-body">
               <div class="container">

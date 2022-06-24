@@ -4,18 +4,19 @@
 
     <BlogItemSkeleton v-if="isLoading" />
     <!-- blog single post start -->
-    <div :class="isHome ? 'col-md-3' : 'col-md-6'" v-for="berita in beritaDatas" :key="berita.id" v-else>
+    <h3 v-else-if="beritaDatas.length == 0" class="text-center col-md-12">Data Tidak Ditemukan</h3>
+    <div :class="isHome ? 'col-md-4' : 'col-md-6'" v-for="berita in beritaDatas" :key="berita.id" v-else>
       <div class="blog-item mt-40">
         <div class="blog-thumb">
           <router-link :to="'/Berita/' + berita.slug">
-            <img :src="berita.cover" alt="blog thumb">
+            <img :src="berita.cover" alt="blog thumb" class="center-cropped">
           </router-link>
         </div>
         <div class="blog-content">
-          <h3 class="blog-title">
-            <router-link :to="'/Berita/' + berita.slug">{{ berita.judul }}</router-link>
+          <h3 class="blog-title  pb-0">
+            <router-link :to="'/Berita/' + berita.slug">{{  truncate( berita.judul,25) }}</router-link>
           </h3>
-          <p>{{ berita.content }}</p>
+          <p style="height: 75px;">{{ truncate(berita.content,120) }}</p>
           <div class="blog-meta">
             <router-link :to="'/Berita/' + berita.slug">{{ berita.tanggal_pembuatan }}</router-link>
           </div>
@@ -25,7 +26,7 @@
     <!-- blog single post start -->
 
     <!-- start pagination area -->
-    <div :class="isHome ? 'col-12  d-none' : 'col-12'">
+    <div :class="isHome || beritaDatas.length == 0 ? 'col-12  d-none' : 'col-12'">
       <div class="paginatoin-area text-center mt-40">
         <ul class="pagination-box">
 
@@ -61,6 +62,9 @@ export default {
     };
   },
   methods: {
+     truncate(str, n){
+  return (str.length > n) ? str.substr(0, n-1) + '...' : str;
+},
     async loadData() {
       this.isLoading = true;
       BeritaService.getAll()
