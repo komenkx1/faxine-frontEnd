@@ -6,31 +6,37 @@
           <div class="card">
             <form action="" class="p-5">
               <div class="form-group">
-                <label for="">Nama</label>
+                <label for="">Nama <small class="text-danger">*</small></label>
                 <input type="text" :disabled="isLoadingform ? true : false" class="form-control"
                   placeholder="Masukan Nama Anda" id="nama_masyarakat" required v-model="lokasi.nama_masyarakat"
                   name="nama_masyarakat" />
               </div>
               <div class="form-group">
-                <label for="">Lokasi Vaksin</label>
+                <label for="">Lokasi Vaksin <small class="text-danger">*</small></label>
                 <input type="text" :disabled="isLoadingform ? true : false" class="form-control"
                   placeholder="Masukan Lokasi Vaksinasi Belangsung" id="alamat" required v-model="lokasi.alamat"
                   name="alamat" />
               </div>
+                <div class="form-group">
+                <label for="">Link Google Map Lokasi</label>
+                <input type="text" :disabled="isLoadingform ? true : false" class="form-control"
+                  placeholder="Masukan Google Map Lokasi Vaksinasi Belangsung" id="alamat" required v-model="lokasi.link_google_map"
+                  name="link_google_map" />
+              </div>
               <div class="form-group">
-                <label for="">Tanggal Mulai</label>
+                <label for="">Tanggal Mulai <small class="text-danger">*</small></label>
                 <input type="datetime-local" :disabled="isLoadingform ? true : false" class="form-control"
                   placeholder="Masukan Tnggal Dimulainya Vaksinasi" id="tanggal_mulai" required
                   v-model="lokasi.tanggal_mulai" name="tanggal_mulai" />
               </div>
               <div class="form-group">
-                <label for="">Tanggal Berakhir</label>
+                <label for="">Tanggal Berakhir <small class="text-danger">*</small></label>
                 <input type="datetime-local" :disabled="isLoadingform ? true : false" class="form-control"
                   placeholder="Masukan Tanggal Berakhirnya Vaksinasi" id="tanggal_berakhir" required
                   v-model="lokasi.tanggal_berakhir" name="tanggal_berakhir" />
               </div>
               <div class="form-group">
-                <label for="">Kapasitas Vaksinasi</label>
+                <label for="">Kapasitas Vaksinasi <small class="text-danger">*</small></label>
                 <input type="number" :disabled="isLoadingform ? true : false" class="form-control"
                   placeholder="Masukan Kapasitas Vaksin Tersedia" id="kapasitas" required v-model="lokasi.kapasitas"
                   name="kapasitas" />
@@ -65,6 +71,7 @@ export default {
         alamat: "",
         tanggal_mulai: "",
         tanggal_berakhir: "",
+        link_google_map:"",
         kapasitas: "",
       },
       isEdit: false,
@@ -79,6 +86,7 @@ export default {
         tanggal_mulai: this.lokasi.tanggal_mulai,
         tanggal_berakhir: this.lokasi.tanggal_berakhir,
         kapasitas: this.lokasi.kapasitas,
+        link_google_map: this.lokasi.link_google_map,
       };
       this.isLoadingform = true;
       LokasiService.create(data)

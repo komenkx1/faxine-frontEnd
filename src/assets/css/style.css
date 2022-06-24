@@ -3761,6 +3761,16 @@ textarea:focus {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
-
+.lokasi-item{
+  color: black;
+  text-decoration: none;
+}
+.lokasi-item:hover, .card:hover{
+  cursor: pointer;
+  color: #00baa0;
+  transform: translateX(30%);
+  transform: perspective(2000px) rotateY(0deg);
+  text-decoration: none;
+}
 
 /*----- footer section end -----*/

@@ -8,7 +8,8 @@
         <div class="item-lokasi mt-4 ">
           <LokasiSkeleton v-if="isLoading" />
           <h3 class="text-center" v-else-if="lokasiDatas.length == 0">Data Tidak Ditemukan</h3>
-          <div class="card mt-3" v-for="(lokasi) in lokasiDatas" :key="lokasi.id" v-else>
+          <a class="lokasi-item" @click="redirectToLink(lokasi.link_google_map)" target="_blank" v-for="(lokasi) in lokasiDatas" :key="lokasi.id" v-else>
+          <div class="card mt-3">
             <div class="card-body">
               <div class="container">
                 <div class="row">
@@ -20,6 +21,10 @@
                     <div class="d-flex align-items-center mt-2">
                       <i class="fa-solid fa-clock"></i>
                       <p class="ml-3"> {{ lokasi.tanggal_mulai }} - {{ lokasi.tanggal_berakhir }}</p>
+                    </div>
+                      <div class="d-flex align-items-center mt-2">
+                      <i class="fa-solid fa-syringe"></i>
+                      <p class="ml-3"> {{ `${lokasi.kapasitas} Orang` }}</p>
                     </div>
                     <div class="d-flex align-items-center mt-2">
                       <i class="fa-solid fa-user"></i>
@@ -41,6 +46,7 @@
               </div>
             </div>
           </div>
+          </a>
         </div>
       </div>
     </div>
@@ -52,7 +58,7 @@ import LokasiService from '@/services/LokasiService';
 import CustomAlert from './CustomAlert.vue';
 import LokasiSkeleton from './LokasiSkeleton.vue';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
-undefined
+
 
 export default {
   name: 'LokasiListVue',
@@ -78,6 +84,7 @@ export default {
             this.lokasiDatas = response.data.data
           }
           this.isLoading = false;
+          console.log(this.lokasiDatas);
         })
         .catch((e) => {
           console.log(e);
@@ -142,6 +149,15 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+        });
+    },
+     async redirectToLink(link) {
+      if (link) {
+         return window.open(link, '_blank');
+        }
+       return CustomAlert.fire({
+          icon: 'warning',
+          title: 'Link Tidak Ditemukan',
         });
     },
   },

@@ -46,9 +46,7 @@
           <!-- item -->
           <div class="blog-item mt-40" v-else>
             <div class="blog-thumb">
-              <a href="blog-details.html">
                 <img :src="berita.cover" alt="blog thumb">
-              </a>
             </div>
             <div class="blog-content blog-details">
               <h3 class="blog-title">{{ berita.judul }}</h3>
