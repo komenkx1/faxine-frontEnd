@@ -94,13 +94,12 @@
                             <div class="section-title text-center">
                                 <h2 class="title-active">Berita <h2 class="h1 title">Terkini</h2>
                                 </h2>
-                                <p>labore dolore magnam aliquam quaerat voluptatem ad minima veniam, quis nostrum
-                                    exercitationem</p>
                             </div>
                         </div>
                     </div>
 
                        <BeritaList :item-count="3" :is-home="true"/>
+                       <br>
 
                 </div>
             </section>

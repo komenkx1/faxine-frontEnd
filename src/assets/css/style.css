@@ -1177,7 +1177,7 @@ textarea:focus {
 .section-title {
   max-width: 1000px;
   margin: auto;
-  margin-bottom: 68px;
+  margin-bottom: 0px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
@@ -2827,6 +2827,7 @@ textarea:focus {
 
 .blog-meta a {
   color: #00baa0;
+  text-decoration: none !important;
 }
 
 .blog-content.blog-details .blog-title {
