@@ -2794,6 +2794,11 @@ textarea:focus {
   text-align: center;
   background-color: #f5f6f7;
   overflow: hidden;
+  border-radius:10px;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -ms-border-radius:10px;
+  -o-border-radius:10px;
 }
 
 .blog-thumb a {

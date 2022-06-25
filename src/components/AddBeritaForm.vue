@@ -7,7 +7,7 @@
             <form action="" class="p-5">
               <div class="form-group">
                 <label for="">Judul Berita</label>
-                <input type="text" class="form-control" placeholder="Masukkan Judul Berita" id="judul" required
+                <input :disabled="isLoading ? true : false" type="text" class="form-control" placeholder="Masukkan Judul Berita" id="judul" required
                   v-model="berita.judul" name="judul" />
               </div>
               <div class="form-group">
@@ -21,12 +21,14 @@
            alignleft aligncenter alignright alignjustify 
            bullist numlist outdent indent removeformat"
            plugins="image link"
-           initialValue="test"
+           :disabled="isLoading ? true : false"
+           :initialValue="'test'"
+
         ></editor>
               </div>
               <div class="form-group">
                 <label for="">Cover</label>
-                <input type="text" class="form-control" placeholder="Masukkan Url Gambar" id="cover" required
+                <input type="text" :disabled="isLoading ? true : false" class="form-control" placeholder="Masukkan Url Gambar" id="cover" required
                   v-model="berita.cover" name="cover" />
               </div>
               <button v-if="isEdit" @click="updateBerita" type="button" class="btn btn-primary">
@@ -61,6 +63,7 @@ export default {
       },
       isEdit: false,
       id_user: 0,
+      isLoading:false
     };
   },
 components: {
@@ -68,6 +71,7 @@ components: {
     },
   methods: {
     saveBerita() {
+      this.isLoading = true;
       var data = {
         id_user: this.id_user,
         judul: this.berita.judul,
@@ -81,10 +85,13 @@ components: {
             title: "Data Berhasil Ditambahkan",
           });
           this.berita = {};
+      this.isLoading = false;
           this.$emit("isShowForm",false);
           this.$parent.refeshDataList();
+
         })
         .catch(async (e) => {
+      this.isLoading = false;
           if (e.response.data != null) {
             let errorValue = []
             let errorKey = []
