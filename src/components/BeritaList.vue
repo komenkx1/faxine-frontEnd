@@ -16,7 +16,8 @@
           <h3 class="blog-title  pb-0">
             <router-link :to="'/Berita/' + berita.slug">{{  truncate( berita.judul,25) }}</router-link>
           </h3>
-          <p style="height: 75px;">{{ truncate(berita.content,120) }}</p>
+          <!-- <p style="height: 75px;" >{{ truncate(berita.content,120) }}</p> -->
+          <div class="content" v-html="truncate(berita.content,120)"></div>
           <div class="blog-meta">
             <router-link :to="'/Berita/' + berita.slug">{{ berita.tanggal_pembuatan }}</router-link>
           </div>

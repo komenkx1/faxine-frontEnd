@@ -20,7 +20,7 @@
                 </div>
             </div>
             <!-- breadcrumb section end -->
-              <AddBeritaForm :beritas="berita" v-if="isShowForm" />
+              <AddBeritaForm  @isShowForm="setIsShowForm" :beritas="berita" v-if="isShowForm" />
 
   <div class="container mb-5">
     <div class="row">
@@ -99,6 +99,10 @@ data() {
         this.berita = {};
         this.isShowForm = true;
       }
+    },
+     setIsShowForm(value) {
+      console.log(value);
+      this.isShowForm = value;
     },
         async searchData() {
       //emit search function on list component

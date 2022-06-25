@@ -12,8 +12,17 @@
               </div>
               <div class="form-group">
                 <label for="">Content Berita</label>
-                <textarea class="form-control" placeholder="Masukan Content Berita" id="content" required
-                  v-model="berita.content" name="content"></textarea>
+                <!-- <textarea class="form-control" placeholder="Masukan Content Berita" id="content" required
+                  v-model="berita.content" name="content"></textarea> -->
+                   <editor 
+                    api-key="xdw74o33z31pibmchix9b4rw8vmqy1jmea2ys7l4m7hovk5k"
+                    v-model="berita.content"
+            toolbar="image italic link undo redo formatselect bold italic backcolor 
+           alignleft aligncenter alignright alignjustify 
+           bullist numlist outdent indent removeformat"
+           plugins="image link"
+           initialValue="test"
+        ></editor>
               </div>
               <div class="form-group">
                 <label for="">Cover</label>
@@ -37,6 +46,8 @@
 import BeritaService from "@/services/BeritaService";
 import CustomAlert from "./CustomAlert.vue";
 import AuthServices from "@/services/AuthServices";
+import Editor from '@tinymce/tinymce-vue';
+
 export default {
   name: "AddBeritaVue",
   props: ["beritas"],
@@ -52,7 +63,9 @@ export default {
       id_user: 0,
     };
   },
-
+components: {
+           'editor': Editor // <- Important part
+    },
   methods: {
     saveBerita() {
       var data = {
@@ -68,6 +81,7 @@ export default {
             title: "Data Berhasil Ditambahkan",
           });
           this.berita = {};
+          this.$emit("isShowForm",false);
           this.$parent.refeshDataList();
         })
         .catch(async (e) => {

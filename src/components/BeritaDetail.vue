@@ -53,7 +53,8 @@
               <div class="blog-meta">
                 <a href="#">{{ berita.tanggal_pembuatan }}</a>
               </div>
-              <p>{{ berita.content }}</p>
+                      <div class="content" v-html="berita.content"></div>
+
             </div>
             <div class="mt-3" v-if="isLogin">
               <button class="btn btn-success mr-2" @click="showAddForm()">
