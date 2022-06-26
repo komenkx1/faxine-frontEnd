@@ -2,7 +2,7 @@
   <div>
     <main>
       <!-- breadcrumb section start -->
-      <div class="breadcrumb-area bg-img bg-img-informasi">
+      <div class="breadcrumb-area bg-img bg-img-informasi" id="informasi-section">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -10,7 +10,9 @@
                 <nav aria-label="breadcrumb">
                   <h2 class="breadcrumb-title">Informasi</h2>
                   <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
+                    <li class="breadcrumb-item">
+                      <router-link to="/">Home</router-link>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">Informasi</li>
                   </ul>
                 </nav>
@@ -46,7 +48,8 @@
         </div>
       </div>
 
-      <LokasiList @isShowForm="setIsShowForm" @lokasis="setlokasiData" ref="lokasiData" :query="search" :is-home="false" />
+      <LokasiList @isShowForm="setIsShowForm" @lokasis="setlokasiData" ref="lokasiData" :query="search"
+        :is-home="false" />
     </main>
   </div>
 </template>
@@ -54,6 +57,9 @@
 
 import LokasiList from "@/components/LokasiList.vue";
 import AddLocationForm from "@/components/AddLocationForm.vue";
+import scrollToTop from "@/helper/ScrollToTopHelper";
+
+var typingTimer = null;
 
 export default {
   name: "InformasiVue",
@@ -75,14 +81,8 @@ export default {
         this.lokasi = {};
         this.isShowForm = true;
         //scroll to top
-        var element = document.getElementById('form-lokasi');
-        var headerOffset = 45;
-        var elementPosition = element.getBoundingClientRect().top;
-        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
+        scrollToTop("form-lokasi")
+
       }
     },
     setIsShowForm(value) {
@@ -91,14 +91,7 @@ export default {
     setlokasiData(value) {
       this.lokasi = value;
       //scroll to top
-      var element = document.getElementById('form-lokasi');
-      var headerOffset = 45;
-      var elementPosition = element.getBoundingClientRect().top;
-      var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      scrollToTop("form-lokasi")
     },
 
     async refeshDataList() {
@@ -106,13 +99,16 @@ export default {
       await this.$refs.lokasiData.loadData();
     },
     async searchData() {
-      console.log(this.search);
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(async () => await this.$refs.lokasiData.loadDataSearchData()
+        , 500)
       //emit search function on list component
-      await this.$refs.lokasiData.loadDataSearchData();
+
     }
   },
   mounted() {
-
+    //scroll to top
+    scrollToTop("informasi-section")
   },
 };
 </script>

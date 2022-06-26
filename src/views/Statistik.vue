@@ -1,5 +1,5 @@
-<template>
-    <div>
+        <template>
+    <div id="statistik-section">
         <main>
             <!-- breadcrumb section start -->
             <div class="breadcrumb-area bg-img bg-img-data">
@@ -10,7 +10,9 @@
                                 <nav aria-label="breadcrumb">
                                     <h2 class="breadcrumb-title">Data</h2>
                                     <ul class="breadcrumb">
-                                        <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
+                                        <li class="breadcrumb-item">
+                                            <router-link to="/">Home</router-link>
+                                        </li>
                                         <li class="breadcrumb-item active" aria-current="page">Data</li>
                                     </ul>
                                 </nav>
@@ -85,54 +87,57 @@
         </main>
     </div>
 </template>
-<script>
-import StatistikCovidService from '@/services/StatistikCovidService'
-export default {
-    name: 'StatistikVue',
-    data() {
-        return {
-            isLoading: false,
-            cases: 0,
-            deaths: 0,
-            recovered: 0,
-            critical: 0,
-        };
-    },
-    methods: {
-        formatNumber(value) {
-            const formatter = new Intl.NumberFormat('id-ID', {
-                currency: 'IDR',
-                minimumFractionDigits: 0
-            });
-            return formatter.format(value); 
-
-        },
-        getStatistik() {
-            this.isLoading = true;
-            StatistikCovidService.getStatistik().then(response => {
-                this.cases = response.data.cases
-                this.deaths = response.data.deaths
-                this.recovered = response.data.recovered
-                this.critical = response.data.critical
-                this.isLoading = false
-
-            })
+        <script>
+        import StatistikCovidService from '@/services/StatistikCovidService'
+        import scrollToTop from "@/helper/ScrollToTopHelper";
+        
+        export default {
+            name: 'StatistikVue',
+            data() {
+                return {
+                    isLoading: false,
+                    cases: 0,
+                    deaths: 0,
+                    recovered: 0,
+                    critical: 0,
+                };
+            },
+            methods: {
+                formatNumber(value) {
+                    const formatter = new Intl.NumberFormat('id-ID', {
+                        currency: 'IDR',
+                        minimumFractionDigits: 0
+                    });
+                    return formatter.format(value);
+        
+                },
+                getStatistik() {
+                    this.isLoading = true;
+                    StatistikCovidService.getStatistik().then(response => {
+                        this.cases = response.data.cases
+                        this.deaths = response.data.deaths
+                        this.recovered = response.data.recovered
+                        this.critical = response.data.critical
+                        this.isLoading = false
+        
+                    })
+                }
+            },
+        
+            mounted() {
+                scrollToTop('statistik-section');
+                this.getStatistik()
+                window.setInterval(() => {
+                    StatistikCovidService.getStatistik().then(response => {
+                        this.cases = response.data.cases
+                        this.deaths = response.data.deaths
+                        this.recovered = response.data.recovered
+                        this.critical = response.data.critical
+                        this.isLoading = false
+        
+                    })
+                }, 15000)
+            }
+        
         }
-    },
-
-    mounted() {
-        this.getStatistik()
-        window.setInterval(() => {
-            StatistikCovidService.getStatistik().then(response => {
-                this.cases = response.data.cases
-                this.deaths = response.data.deaths
-                this.recovered = response.data.recovered
-                this.critical = response.data.critical
-                this.isLoading = false
-
-            })
-        }, 15000)
-    }
-
-}
-</script>
+        </script>

@@ -46,14 +46,14 @@
           <!-- item -->
           <div class="blog-item mt-40" v-else>
             <div class="blog-thumb">
-                <img :src="berita.cover" alt="blog thumb">
+              <img :src="berita.cover" alt="blog thumb">
             </div>
             <div class="blog-content blog-details">
               <h3 class="blog-title">{{ berita.judul }}</h3>
               <div class="blog-meta">
                 <a href="#">{{ berita.tanggal_pembuatan }}</a>
               </div>
-                      <div class="content" v-html="berita.content"></div>
+              <div class="content" v-html="berita.content"></div>
 
             </div>
             <div class="mt-3" v-if="isLogin">
@@ -84,6 +84,7 @@ import BeritaService from '@/services/BeritaService';
 import AddBeritaForm from './AddBeritaForm.vue';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
 import BlogRecentSkeleton from '@/components/BlogRecentSkeleton.vue';
+import scrollToTop from "@/helper/ScrollToTopHelper";
 
 
 export default {
@@ -103,14 +104,7 @@ export default {
     showAddForm() {
       this.isShowForm = true;
       //scroll to top
-      var element = document.getElementById('form-add-berita');
-      var headerOffset = 45;
-      var elementPosition = element.getBoundingClientRect().top;
-      var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      scrollToTop('form-add-berita')
     },
     async loadData() {
       this.isLoading = true;

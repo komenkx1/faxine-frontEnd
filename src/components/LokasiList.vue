@@ -1,36 +1,38 @@
 
 <template>
 
-  <div class="container mb-5">
+  <div class="container mb-5" id="lokasi-section">
     <div class="row">
       <div class="col-md-12">
 
         <div class="item-lokasi mt-4 ">
           <LokasiSkeleton v-if="isLoading" />
           <h3 class="text-center" v-else-if="lokasiDatas.length == 0">Data Tidak Ditemukan</h3>
-          <a class="lokasi-item" @click="redirectToLink(lokasi.link_google_map)" target="_blank" v-for="(lokasi) in lokasiDatas" :key="lokasi.id" v-else>
-          <div class="card mt-3">
+          <div class="card mt-3" v-for="(lokasi) in lokasiDatas" :key="lokasi.id" v-else>
             <div class="card-body">
               <div class="container">
                 <div class="row">
                   <div class="col-md-10">
-                    <div class="d-flex align-items-center mt-2">
-                      <i class="fa-solid fa-map-pin"></i>
-                      <p class="ml-4 font-weight-bolder">{{ lokasi.alamat }}</p>
-                    </div>
-                    <div class="d-flex align-items-center mt-2">
-                      <i class="fa-solid fa-clock"></i>
-                      <p class="ml-3"> {{ lokasi.tanggal_mulai }} - {{ lokasi.tanggal_berakhir }}</p>
-                    </div>
-                      <div class="d-flex align-items-center mt-2">
-                      <i class="fa-solid fa-syringe"></i>
-                      <p class="ml-3"> {{ `${lokasi.kapasitas} Orang` }}</p>
-                    </div>
-                    <div class="d-flex align-items-center mt-2">
-                      <i class="fa-solid fa-user"></i>
-                      <p class="ml-3"> {{ lokasi.nama_masyarakat }}</p>
-                    </div>
+                    <a class="lokasi-item" @click="redirectToLink(lokasi.link_google_map)" target="_blank">
 
+                      <div class="d-flex align-items-center mt-2">
+                        <i class="fa-solid fa-map-pin"></i>
+                        <p class="ml-4 font-weight-bolder">{{ lokasi.alamat }}</p>
+                      </div>
+                      <div class="d-flex align-items-center mt-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <p class="ml-3"> {{ lokasi.tanggal_mulai }} - {{ lokasi.tanggal_berakhir }}</p>
+                      </div>
+                      <div class="d-flex align-items-center mt-2">
+                        <i class="fa-solid fa-syringe"></i>
+                        <p class="ml-3"> {{ `${lokasi.kapasitas} Orang` }}</p>
+                      </div>
+                      <div class="d-flex align-items-center mt-2">
+                        <i class="fa-solid fa-user"></i>
+                        <p class="ml-3"> {{ lokasi.nama_masyarakat }}</p>
+                      </div>
+
+                    </a>
                   </div>
                   <div class="col-12 col-lg-1 col-md-2" v-if="isLogin && !isHome">
                     <hr class="d-md-none d-block">
@@ -46,7 +48,6 @@
               </div>
             </div>
           </div>
-          </a>
         </div>
       </div>
     </div>
@@ -62,7 +63,7 @@ import IsLoginUser from '@/helper/CheckIsloginHelper';
 
 export default {
   name: 'LokasiListVue',
-  props: ["query","itemCount","isHome"],
+  props: ["query", "itemCount", "isHome"],
   data() {
     return {
       isLogin: IsLoginUser != null ? IsLoginUser.isLogin : false,
@@ -77,14 +78,13 @@ export default {
       this.isLoading = true;
       LokasiService.getAll()
         .then((response) => {
-          if ( this.itemCount > 0 ) {
-            this.itemCount+1;
+          if (this.itemCount > 0) {
+            this.itemCount + 1;
             this.lokasiDatas = response.data.data.slice(0, this.itemCount)
           } else {
             this.lokasiDatas = response.data.data
           }
           this.isLoading = false;
-          console.log(this.lokasiDatas);
         })
         .catch((e) => {
           console.log(e);
@@ -151,17 +151,18 @@ export default {
           console.log(e);
         });
     },
-     async redirectToLink(link) {
+    async redirectToLink(link) {
       if (link) {
-         return window.open(link, '_blank');
-        }
-       return CustomAlert.fire({
-          icon: 'warning',
-          title: 'Link Tidak Ditemukan',
-        });
+        return window.open(link, '_blank');
+      }
+      return CustomAlert.fire({
+        icon: 'warning',
+        title: 'Link Tidak Ditemukan',
+      });
     },
   },
   mounted() {
+
     this.loadData();
   },
   components: { LokasiSkeleton },
