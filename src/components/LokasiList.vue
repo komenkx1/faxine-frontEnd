@@ -13,7 +13,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-10">
-                    <a class="lokasi-item" @click="redirectToLink(lokasi.link_google_map)" target="_blank">
+                    <a class="lokasi-item" href="#" @click="redirectToLink(lokasi.link_google_map)" target="_blank">
 
                       <div class="d-flex align-items-center mt-2">
                         <i class="fa-solid fa-map-pin"></i>
