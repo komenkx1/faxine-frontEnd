@@ -82,6 +82,28 @@
                         </div>
                     </div>
                 </div>
+                 <div class="row">
+                    <div class="col-md-6 mb-3" v-for="vaksinasiData in vaksinasi" :key="vaksinasiData">
+                        <div class="card text-center">
+                            <div class="content p-3">
+                                <h1 class="angka-statistik case-statistic-color">{{ this.isLoading ? "- - - -" :
+                                        this.formatNumber(vaksinasiData)
+                                }}</h1>
+                                <span class="case-statistic-color">
+                                    Terkonfirmasi
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="progress">
+  <div class="progress-bar" role="progressbar" :aria-valuenow="vaksinasiData"
+  aria-valuemin="0" aria-valuemax="272229372" style="width:201350232px">
+    70%
+  </div>
+</div>
+                    </div>
+                    
+                </div>
             </section>
 
         </main>
@@ -100,6 +122,7 @@
                     deaths: 0,
                     recovered: 0,
                     critical: 0,
+                    vaksinasi : []
                 };
             },
             methods: {
@@ -121,12 +144,22 @@
                         this.isLoading = false
         
                     })
+                },
+                getStatistikVaksin() {
+                    this.isLoading = true;
+                    StatistikCovidService.getStatistikVaksinasi().then(response => {
+                        console.log(response.data.vaksinasi.total);
+                        this.vaksinasi = response.data.vaksinasi.total
+                        this.isLoading = false
+        
+                    })
                 }
             },
         
             mounted() {
                 scrollToTop('statistik-section');
                 this.getStatistik()
+                this.getStatistikVaksin()
                 window.setInterval(() => {
                     StatistikCovidService.getStatistik().then(response => {
                         this.cases = response.data.cases
