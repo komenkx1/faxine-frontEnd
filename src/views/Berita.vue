@@ -24,14 +24,14 @@
       <!-- breadcrumb section end -->
       <AddBeritaForm @isShowForm="setIsShowForm" :beritas="berita" v-if="isShowForm" />
 
-      <div class="container mb-5">
+      <div class="container mt-5">
         <div class="row">
           <div class="col-md-12">
             <div class=" d-flex">
-              <button class="w-25 btn btn-primary" v-if="!isShowForm && isLogin" @click="showAddForm">
+              <button class="w-100 btn btn-primary" v-if="!isShowForm && isLogin" @click="showAddForm">
                 Tambahkan Berita Baru
               </button>
-              <button class="w-25 btn btn-danger" v-else-if="isShowForm && isLogin" @click="showAddForm">
+              <button class="w-100 btn btn-danger" v-else-if="isShowForm && isLogin" @click="showAddForm">
                 Tutup Form
               </button>
             </div>

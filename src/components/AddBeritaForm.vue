@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <div class="col-lg-12 order-2 order-lg-1">
           <div class="card">
-            <form action="" class="p-5">
+            <form action="" class="p-5" style="margin:0;">
               <div class="form-group">
                 <label for="">Judul Berita</label>
                 <input :disabled="isLoading ? true : false" type="text" class="form-control" placeholder="Masukkan Judul Berita" id="judul" required
