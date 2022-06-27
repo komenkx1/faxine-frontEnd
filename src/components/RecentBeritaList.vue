@@ -27,6 +27,8 @@
 
 import BlogRecentSkeleton from '@/components/BlogRecentSkeleton.vue';
 import BeritaService from '@/services/BeritaService';
+import sessionExpired from '@/helper/SessionExpired';
+
 // import { Swal } from "sweetalert2/dist/sweetalert2";
 
 export default {
@@ -59,6 +61,9 @@ async loadData() {
         })
         .catch((e) => {
           console.log(e);
+   if (e.response.status === 401) {
+                     sessionExpired();
+                }
         });
     },
     },

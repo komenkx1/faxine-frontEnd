@@ -85,6 +85,7 @@ import AddBeritaForm from './AddBeritaForm.vue';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
 import BlogRecentSkeleton from '@/components/BlogRecentSkeleton.vue';
 import scrollToTop from "@/helper/ScrollToTopHelper";
+import sessionExpired from '@/helper/SessionExpired';
 
 
 export default {
@@ -120,6 +121,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
     getBySlug(slug) {
@@ -133,6 +137,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
     removeBerita(id) {
@@ -159,6 +166,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
   },

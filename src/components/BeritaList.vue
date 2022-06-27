@@ -48,6 +48,7 @@ import BeritaService from '@/services/BeritaService';
 import BlogItemSkeleton from '@/components/BlogItemSkeleton.vue';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
 import scrollToTop from "@/helper/ScrollToTopHelper";
+import sessionExpired from '@/helper/SessionExpired';
 
 
 export default {
@@ -94,6 +95,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
     async loadDataSearchData() {
@@ -119,6 +123,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
 
@@ -145,6 +152,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
     getBySlug(slug) {
@@ -156,6 +166,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
 

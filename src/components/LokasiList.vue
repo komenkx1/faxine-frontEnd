@@ -13,7 +13,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-10">
-                    <div class="lokasi-item"  @click="redirectToLink(lokasi.link_google_map)" target="_blank">
+                    <div class="lokasi-item" @click="redirectToLink(lokasi.link_google_map)" target="_blank">
 
                       <div class="d-flex align-items-center mt-2">
                         <i class="fa-solid fa-map-pin"></i>
@@ -59,6 +59,7 @@ import LokasiService from '@/services/LokasiService';
 import CustomAlert from './CustomAlert.vue';
 import LokasiSkeleton from './LokasiSkeleton.vue';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
+import sessionExpired from '@/helper/SessionExpired';
 
 
 export default {
@@ -88,6 +89,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
 
     },
@@ -107,6 +111,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
     getById(id) {
@@ -118,6 +125,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
 
@@ -149,6 +159,9 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.response.status === 401) {
+            sessionExpired();
+          }
         });
     },
     async redirectToLink(link) {

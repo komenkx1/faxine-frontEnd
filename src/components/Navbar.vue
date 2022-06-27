@@ -92,19 +92,23 @@
                         <!-- mobile menu navigation start -->
                         <nav>
                             <ul class="mobile-menu">
-                                <li :class="{ 'active': getRoutePath === '/' }">
+                                <li :class="{ 'active': getRoutePath === '/' }" @click="this.clickToggler = false">
                                     <router-link to="/">Home</router-link>
                                 </li>
-                                <li :class="{ 'active': getRoutePath === '/Informasi' }">
+                                <li :class="{ 'active': getRoutePath === '/Informasi' }"
+                                    @click="this.clickToggler = false">
                                     <router-link to="/Informasi">Informasi Vaksin Covid</router-link>
                                 </li>
-                                <li :class="{ 'active': getRoutePath === '/Statistik' }">
+                                <li :class="{ 'active': getRoutePath === '/Statistik' }"
+                                    @click="this.clickToggler = false">
                                     <router-link to="/Statistik">Data Statistik Covid</router-link>
                                 </li>
-                                <li :class="{ 'active': getRoutePath === '/Berita' }">
+                                <li :class="{ 'active': getRoutePath === '/Berita' }"
+                                    @click="this.clickToggler = false">
                                     <router-link to="/Berita">Berita</router-link>
                                 </li>
-                                <li :class="{ 'active': getRoutePath === '/Tentang-Kami' }">
+                                <li :class="{ 'active': getRoutePath === '/Tentang-Kami' }"
+                                    @click="this.clickToggler = false">
                                     <router-link to="/Tentang-Kami">Tentang Kami</router-link>
                                 </li>
                                 <li class="btn btn-danger" v-if="isLogin" @click="logout">
@@ -126,7 +130,7 @@
 <script>
 import AuthServices from '@/services/AuthServices';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
-
+import sessionExpired from '@/helper/SessionExpired';
 export default {
     name: "NavbarVue",
     data() {
@@ -141,11 +145,19 @@ export default {
     },
     methods: {
         async logout() {
-            await AuthServices.logout();
-            localStorage.removeItem('userLoginInfo')
+            AuthServices.logout().then(response => {
+                console.log(response);
+                localStorage.removeItem('userLoginInfo')
+                window.location.href = '/'
+                // this.$router.push('/');
+            }).catch(error => {
+                this.clickToggler = false
+                if (error.response.status === 401) {
+                    sessionExpired();
+                }
+            })
 
-            window.location.href = '/'
-            console.log("terlogout")
+            // console.log("terlogout")
         }
     },
     computed: {
