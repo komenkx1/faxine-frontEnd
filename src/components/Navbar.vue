@@ -5,7 +5,7 @@
             <div class="main-menu-wrapper sticky header-transparent">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <!-- logo area start -->
                             <div class="brand-logo">
                                 <a href="#">
@@ -14,7 +14,7 @@
                             </div>
                             <!-- logo area end -->
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-10">
                             <div class="main-menu-inner">
                                 <!-- main menu navbar start -->
                                 <nav class="main-menu">
@@ -35,7 +35,7 @@
                                             <router-link to="/Tentang-Kami">Tentang Kami</router-link>
                                         </li>
                                         <li class="btn btn-danger" v-if="isLogin" @click="logout">
-                                            <button>Logout</button>
+                                            <button style="color:white;">Logout</button>
                                         </li>
                                     </ul>
                                 </nav>
@@ -108,7 +108,7 @@
                                     <router-link to="/Tentang-Kami">Tentang Kami</router-link>
                                 </li>
                                 <li class="btn btn-danger" v-if="isLogin" @click="logout">
-                                    <button>Logout</button>
+                                    <button style="color:white;">Logout</button>
                                 </li>
                             </ul>
                         </nav>

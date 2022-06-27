@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="section-title text-center">
-                                <h2 class="h1 title" id="informasi">Informasi Vaksin<p class="title-active">Covid-19</p>
+                                <h2 class="h1 title" id="informasi">Informasi Vaksin<p class="title-active"> Covid-19</p>
                                 </h2>
                             </div>
                         </div>

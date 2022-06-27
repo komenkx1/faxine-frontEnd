@@ -61,8 +61,7 @@
                         </div>
                         <div class="col-xl-5 offset-xl-1 order-1 order-xl-2">
                             <div class="team-content team-content--style_2 about-inner">
-                                <h2 class="h1 title">Our <p class="title-active">Team</p>
-                                </h2>
+                                <h2 class="h1 title">Our <p class="title-active">Team</p></h2>
                                 <p>Kami tergabung dalam tim dari CPSG-73 dalam program MSIB Dicoding Front End 
                                     dan Back End Developer. Website Faxine ini dapat dihasilkan dari kolaborasi 
                                     yang kami lakukan dalam tim ini. Tentunya diharapkan website ini dapat bermanfaat 
@@ -90,7 +89,7 @@
                                 <div class="team-member-info">
                                     <h5 class="team-member-name">Komang Wahyu</h5>
                                 </div>
-                                <img src="assets/img/team/team-5.png" alt="team member">
+                                <img src="../assets/img/team/wahyu.png">
                             </div>
                         </div>
                         <div class="col-xl-auto col-sm-3 col-6 flex-grow-1">
@@ -98,15 +97,17 @@
                                 <div class="team-member-info">
                                     <h5 class="team-member-name">Andrian</h5>
                                 </div>
-                                <img src="assets/img/team/team-6.png" alt="team member">
+                                <img src="../assets/img/team/wahyu.png">
                             </div>
                         </div>
+                    </div>
+                    <div class="row team-member-inner">
                         <div class="col-xl-auto col-sm-3 col-6 flex-grow-1">
                             <div class="team-member team-member--hover-effect mt-40">
                                 <div class="team-member-info">
                                     <h5 class="team-member-name">Ananda Andra</h5>
                                 </div>
-                                <img src="assets/img/team/team-7.png" alt="team member">
+                                <img src="../assets/img/team/andra.png">
                             </div>
                         </div>
                         <div class="col-xl-auto col-sm-3 col-6 flex-grow-1">
@@ -114,7 +115,7 @@
                                 <div class="team-member-info">
                                     <h5 class="team-member-name">Gisela Sanggaria</h5>
                                 </div>
-                                <img src="assets/img/team/team-8.png" alt="team member">
+                                <img src="../assets/img/team/gisela.png">
                             </div>
                         </div>
                     </div>
