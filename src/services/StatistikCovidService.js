@@ -9,9 +9,10 @@ import axios from "axios";
 //   });
 
   const http = axios.create({
-    baseURL: 'https://faxine.live/public/api',
+    baseURL: 'https://data.covid19.go.id/public/api',
     // baseURL: 'http://localhost:8080/public/api',
     headers: {
+      'Access-Control-Allow-Origin': '*',
       'Content-type': 'application/json',
     },
   });
