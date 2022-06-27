@@ -135,36 +135,35 @@
                 getStatistik() {
                     this.isLoading = true;
                     StatistikCovidService.getStatistik().then(response => {
-                        console.log(response.data);
-                        this.cases = response.data.update.total.jumlah_positif
-                        this.deaths = response.data.update.total.jumlah_meninggal
-                        this.recovered = response.data.update.total.jumlah_sembuh
-                        this.critical = response.data.update.total.jumlah_dirawat
+                        this.cases = response.data.positif
+                        this.deaths = response.data.meninggal
+                        this.recovered = response.data.sembuh
+                        this.critical = response.data.dirawat
                         this.isLoading = false
         
                     })
                 },
-                getStatistikVaksin() {
-                    this.isLoading = true;
-                    StatistikCovidService.getStatistikVaksinasi().then(response => {
-                        console.log(response.data.vaksinasi.total);
-                        this.vaksinasi = response.data.vaksinasi.total
-                        this.isLoading = false
+                // getStatistikVaksin() {
+                //     this.isLoading = true;
+                //     StatistikCovidService.getStatistikVaksinasi().then(response => {
+                //         console.log(response.data.vaksinasi.total);
+                //         this.vaksinasi = response.data.vaksinasi.total
+                //         this.isLoading = false
         
-                    })
-                }
+                //     })
+                // }
             },
         
             mounted() {
                 scrollToTop('statistik-section');
                 this.getStatistik()
-                this.getStatistikVaksin()
+                // this.getStatistikVaksin()
                 window.setInterval(() => {
                     StatistikCovidService.getStatistik().then(response => {
-                        this.cases = response.data.update.total.jumlah_positif
-                        this.deaths = response.data.update.total.jumlah_meninggal
-                        this.recovered = response.data.update.total.jumlah_sembuh
-                        this.critical = response.data.update.total.jumlah_dirawat
+                        this.cases = response.data.positif
+                        this.deaths = response.data.meninggal
+                        this.recovered = response.data.sembuh
+                        this.critical = response.data.dirawat
                         this.isLoading = false
         
                     })

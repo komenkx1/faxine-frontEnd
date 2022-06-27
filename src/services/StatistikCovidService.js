@@ -9,7 +9,7 @@ import axios from "axios";
 //   });
 
   const http = axios.create({
-    baseURL: 'https://data.covid19.go.id/public/api',
+    baseURL: 'https://apicovid19indonesia-v2.vercel.app/api/',
     // baseURL: 'http://localhost:8080/public/api',
     headers: {
       'Content-type': 'application/json',
@@ -18,7 +18,7 @@ import axios from "axios";
 
   class StatistikCovidService {
     getStatistik() {
-      return http.get("/update.json");
+      return http.get("/indonesia");
     }
     getStatistikVaksinasi() {
       return http.get("/pemeriksaan-vaksinasi.json");
