@@ -1,28 +1,12 @@
-import axios from "axios";
+import http from "./http-common";
 
-// const http = axios.create({
-//     baseURL: 'https://corona.lmao.ninja/v2/countries',
-//     headers: {
-//         'Access-Control-Allow-Origin': '*',
-//       'Content-type': 'application/json',
-//     },
-//   });
-
-  const http = axios.create({
-    baseURL: 'https://apicovid19indonesia-v2.vercel.app/api/',
-    // baseURL: 'http://localhost:8080/public/api',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Content-type': 'application/json',
-    },
-  });
 
   class StatistikCovidService {
     getStatistik() {
-      return http.get("/indonesia");
+      return http.get("/statistik/covid");
     }
     getStatistikVaksinasi() {
-      return http.get("/pemeriksaan-vaksinasi.json",{
+      return http.get("/statistik/vaksin",{
         mode: 'no-cors',
       });
     }

@@ -135,35 +135,36 @@
                 getStatistik() {
                     this.isLoading = true;
                     StatistikCovidService.getStatistik().then(response => {
-                        this.cases = response.data.positif
-                        this.deaths = response.data.meninggal
-                        this.recovered = response.data.sembuh
-                        this.critical = response.data.dirawat
+                        console.log(response);
+                        this.cases = response.data.jumlah_positif
+                        this.deaths = response.data.jumlah_meninggal
+                        this.recovered = response.data.jumlah_sembuh
+                        this.critical = response.data.jumlah_dirawat
                         this.isLoading = false
         
                     })
                 },
-                // getStatistikVaksin() {
-                //     this.isLoading = true;
-                //     StatistikCovidService.getStatistikVaksinasi().then(response => {
-                //         console.log(response.data.vaksinasi.total);
-                //         this.vaksinasi = response.data.vaksinasi.total
-                //         this.isLoading = false
+                getStatistikVaksin() {
+                    this.isLoading = true;
+                    StatistikCovidService.getStatistikVaksinasi().then(response => {
+                        // console.log(response.data.vaksinasi.total);
+                        this.vaksinasi = response.data
+                        this.isLoading = false
         
-                //     })
-                // }
+                    })
+                }
             },
         
             mounted() {
                 scrollToTop('statistik-section');
                 this.getStatistik()
-                // this.getStatistikVaksin()
+                this.getStatistikVaksin()
                 window.setInterval(() => {
                     StatistikCovidService.getStatistik().then(response => {
-                        this.cases = response.data.positif
-                        this.deaths = response.data.meninggal
-                        this.recovered = response.data.sembuh
-                        this.critical = response.data.dirawat
+                    this.cases = response.data.jumlah_positif
+                        this.deaths = response.data.jumlah_meninggal
+                        this.recovered = response.data.jumlah_sembuh
+                        this.critical = response.data.jumlah_dirawat
                         this.isLoading = false
         
                     })
