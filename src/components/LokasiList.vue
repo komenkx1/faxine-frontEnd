@@ -13,7 +13,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-10">
-                    <a class="lokasi-item" href="#" @click="redirectToLink(lokasi.link_google_map)" target="_blank">
+                    <div class="lokasi-item"  @click="redirectToLink(lokasi.link_google_map)" target="_blank">
 
                       <div class="d-flex align-items-center mt-2">
                         <i class="fa-solid fa-map-pin"></i>
@@ -32,7 +32,7 @@
                         <p class="ml-3"> {{ lokasi.nama_masyarakat }}</p>
                       </div>
 
-                    </a>
+                    </div>
                   </div>
                   <div class="col-12 col-lg-1 col-md-2" v-if="isLogin && !isHome">
                     <hr class="d-md-none d-block">
