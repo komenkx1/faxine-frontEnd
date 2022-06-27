@@ -19,10 +19,14 @@ import axios from "axios";
 
   class StatistikCovidService {
     getStatistik() {
-      return http.get("/update.json");
+      return http.get("/update.json",{
+        mode: 'no-cors',
+      });
     }
     getStatistikVaksinasi() {
-      return http.get("/pemeriksaan-vaksinasi.json");
+      return http.get("/pemeriksaan-vaksinasi.json",{
+        mode: 'no-cors',
+      });
     }
 }
 
