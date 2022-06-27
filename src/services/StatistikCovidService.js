@@ -12,6 +12,7 @@ import axios from "axios";
     baseURL: 'https://apicovid19indonesia-v2.vercel.app/api/',
     // baseURL: 'http://localhost:8080/public/api',
     headers: {
+      'Access-Control-Allow-Origin': '*',
       'Content-type': 'application/json',
     },
   });
@@ -21,7 +22,9 @@ import axios from "axios";
       return http.get("/indonesia");
     }
     getStatistikVaksinasi() {
-      return http.get("/pemeriksaan-vaksinasi.json");
+      return http.get("/pemeriksaan-vaksinasi.json",{
+        mode: 'no-cors',
+      });
     }
 }
 
