@@ -9,7 +9,7 @@ import axios from "axios";
 //   });
 
   const http = axios.create({
-    baseURL: 'https://data.covid19.go.id/public/api',
+    baseURL: 'https://faxine.live/public/api',
     // baseURL: 'http://localhost:8080/public/api',
     headers: {
       'Content-type': 'application/json',
