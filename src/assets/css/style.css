@@ -58,7 +58,7 @@ h1,
 @media only screen and (max-width: 767.98px) {
   h1,
   .h1 {
-    font-size: 28px;
+    font-size: 28px !important;
   }
 }
 
@@ -1202,11 +1202,14 @@ textarea:focus {
   .title-active {
     font-size: 25px !important;
   }
+  h1 .title {
+    font-size: 25px !important;
+  }
 }
 
 @media only screen and (max-width: 767.98px) {
   .font-weight-bolder{
-    font-size: 30px !important;
+    font-size: 13px !important;
   }
 }
 
@@ -3373,6 +3376,18 @@ textarea:focus {
 
 .faq-inner .card-header .accordio-heading[aria-expanded="true"]:before {
   content: "\f106";
+}
+
+.team-member-inner {
+  margin-top: 70px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .team-member-inner {
+    margin-top: 0px;
+  }
 }
 
 /*---------- faq style end ----------*/
