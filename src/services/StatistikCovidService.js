@@ -1,14 +1,14 @@
 import axios from "axios";
 
-const http = axios.create({
-    baseURL: 'https://corona.lmao.ninja/v2/countries',
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-      'Content-type': 'application/json',
-    },
-  });
+// const http = axios.create({
+//     baseURL: 'https://corona.lmao.ninja/v2/countries',
+//     headers: {
+//         'Access-Control-Allow-Origin': '*',
+//       'Content-type': 'application/json',
+//     },
+//   });
 
-  const httpVaksin = axios.create({
+  const http = axios.create({
     baseURL: 'http://localhost:8080/public/api',
     headers: {
       'Content-type': 'application/json',
@@ -17,10 +17,10 @@ const http = axios.create({
 
   class StatistikCovidService {
     getStatistik() {
-      return http.get("/indonesia?yesterday&strict&query");
+      return http.get("/update.json");
     }
     getStatistikVaksinasi() {
-      return httpVaksin.get("/pemeriksaan-vaksinasi.json");
+      return http.get("/pemeriksaan-vaksinasi.json");
     }
 }
 

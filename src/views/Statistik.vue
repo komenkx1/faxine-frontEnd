@@ -27,6 +27,25 @@
                     <h1 class="font-weight-bolder">Pantau informasi COVID-19 secara tepat dan akurat</h1>
                 </div>
                 <hr>
+                      
+                 <div class="row">
+                    <div class="col-md-6 mb-3" v-for="(vaksinasiData, name, index) in vaksinasi" :key="vaksinasiData">
+                        <div class="card">
+                            <div class="content p-3">
+                                <h1 class="case-statistic-color font-weight-bolder">
+                                    Vaksin Dosis {{ index + 1 }}
+                                </h1>
+                                <h2 class="text-right cure-statistic-color font-weight-bold">{{ this.isLoading ? "- - - -" :
+                                        this.formatNumber(vaksinasiData)
+                                }}</h2>
+                                <p class="text-right">dosis telah diberikan</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <hr>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <div class="card text-center">
@@ -48,7 +67,7 @@
                                         this.formatNumber(this.critical)
                                 }}</h1>
                                 <span class="critical-statistic-color">
-                                    Kritis
+                                    Dirawat
                                 </span>
                             </div>
 
@@ -82,28 +101,7 @@
                         </div>
                     </div>
                 </div>
-                 <div class="row">
-                    <div class="col-md-6 mb-3" v-for="vaksinasiData in vaksinasi" :key="vaksinasiData">
-                        <div class="card text-center">
-                            <div class="content p-3">
-                                <h1 class="angka-statistik case-statistic-color">{{ this.isLoading ? "- - - -" :
-                                        this.formatNumber(vaksinasiData)
-                                }}</h1>
-                                <span class="case-statistic-color">
-                                    Terkonfirmasi
-                                </span>
-                            </div>
-
-                        </div>
-                        <div class="progress">
-  <div class="progress-bar" role="progressbar" :aria-valuenow="vaksinasiData"
-  aria-valuemin="0" aria-valuemax="272229372" style="width:201350232px">
-    70%
-  </div>
-</div>
-                    </div>
-                    
-                </div>
+      
             </section>
 
         </main>
@@ -137,10 +135,11 @@
                 getStatistik() {
                     this.isLoading = true;
                     StatistikCovidService.getStatistik().then(response => {
-                        this.cases = response.data.cases
-                        this.deaths = response.data.deaths
-                        this.recovered = response.data.recovered
-                        this.critical = response.data.critical
+                        console.log(response.data);
+                        this.cases = response.data.update.total.jumlah_positif
+                        this.deaths = response.data.update.total.jumlah_meninggal
+                        this.recovered = response.data.update.total.jumlah_sembuh
+                        this.critical = response.data.update.total.jumlah_dirawat
                         this.isLoading = false
         
                     })
@@ -162,10 +161,10 @@
                 this.getStatistikVaksin()
                 window.setInterval(() => {
                     StatistikCovidService.getStatistik().then(response => {
-                        this.cases = response.data.cases
-                        this.deaths = response.data.deaths
-                        this.recovered = response.data.recovered
-                        this.critical = response.data.critical
+                        this.cases = response.data.update.total.jumlah_positif
+                        this.deaths = response.data.update.total.jumlah_meninggal
+                        this.recovered = response.data.update.total.jumlah_sembuh
+                        this.critical = response.data.update.total.jumlah_dirawat
                         this.isLoading = false
         
                     })
