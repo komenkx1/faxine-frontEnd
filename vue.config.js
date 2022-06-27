@@ -7,5 +7,8 @@ module.exports = defineConfig({
       // swSrc is required in InjectManifest mode.
       swSrc: './src/service-worker.js',
     }
-  }
+  },
+  devServer:{
+    proxy: "https://data.covid19.go.id" 
+   }
 })
