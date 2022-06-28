@@ -4,7 +4,7 @@
     <AddBeritaForm :beritas="berita" v-if="isShowForm || isEdit" />
   </div>
   <!-- blog section start -->
-  <section class="blog-area section-padding">
+  <section class="blog-area section-padding" id="detail-berita">
     <div class="container">
       <div class="row mtn-40">
         <div class="col-lg-3 order-2 blog-widget-wrapper">
@@ -172,17 +172,18 @@ export default {
         });
     },
   },
-  created() {
-    this.$watch(
-      () => this.$route.params,
-      (toParams, previousParams) => {
-        if (toParams != previousParams) {
-          location.reload()
-        }
-      }
-    )
-  },
+  // created() {
+  //   this.$watch(
+  //     () => this.$route.params,
+  //     (toParams, previousParams) => {
+  //       if (toParams != previousParams) {
+  //         location.reload()
+  //       }
+  //     }
+  //   )
+  // },
   mounted() {
+      scrollToTop('detail-berita')
     this.loadData();
     this.getBySlug(this.$route.params.id);
   },

@@ -1,12 +1,12 @@
 <template>
-  <section class="form section-padding">
+<br>
+  <section class="form section-padding mt-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 d-flex justify-content-center">
           <form
             action=""
-            style="width: 60%; margin: 0 auto"
-            class="border border-success p-3 rounded-lg"
+            class="border border-success p-3 w-100 rounded-lg"
           >
             <div class="form-group">
               <label class="sr-only" for="email">Email</label>

@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <div class="col-lg-12 order-2 order-lg-1">
           <div class="card">
-            <form action="" class="p-5" style="margin:0;">
+            <form action="" class="p-4 p-md-5" style="margin:0;">
               <div class="form-group">
                 <label for="">Judul Berita</label>
                 <input :disabled="isLoading ? true : false" type="text" class="form-control" placeholder="Masukkan Judul Berita" id="judul" required
@@ -12,8 +12,6 @@
               </div>
               <div class="form-group">
                 <label for="">Content Berita</label>
-                <!-- <textarea class="form-control" placeholder="Masukan Content Berita" id="content" required
-                  v-model="berita.content" name="content"></textarea> -->
                    <editor 
                     api-key="xdw74o33z31pibmchix9b4rw8vmqy1jmea2ys7l4m7hovk5k"
                     v-model="berita.content"

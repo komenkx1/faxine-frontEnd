@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <div class="col-lg-12 order-2 order-lg-1">
           <div class="card">
-            <form action="" class="p-5">
+            <form action="" class="p-4 p-md-5">
               <div class="form-group">
                 <label for="">Nama <small class="text-danger">*</small></label>
                 <input type="text" :disabled="isLoadingform ? true : false" class="form-control"
