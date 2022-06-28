@@ -34,8 +34,8 @@
                                         <li :class="{ 'active': getRoutePath === '/Tentang-Kami' }">
                                             <router-link to="/Tentang-Kami">Tentang Kami</router-link>
                                         </li>
-                                        <li class="btn btn-danger" v-if="isLogin" @click="logout">
-                                            <button style="color:white;">Logout</button>
+                                        <li  v-if="isLogin" @click="logout">
+                                            <button class="btn btn-danger" style="color:white;">Logout</button>
                                         </li>
                                     </ul>
                                 </nav>
@@ -62,7 +62,7 @@
                                 </a>
                             </div>
                             <div @click="clickToggler = !clickToggler" class="mobile-menu-toggler">
-                                <button class="mobile-menu-btn">
+                                <button class="mobile-menu-btn p-3">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -111,8 +111,8 @@
                                     @click="this.clickToggler = false">
                                     <router-link to="/Tentang-Kami">Tentang Kami</router-link>
                                 </li>
-                                <li class="btn btn-danger" v-if="isLogin" @click="logout">
-                                    <button style="color:white;">Logout</button>
+                                <li  v-if="isLogin" @click="logout">
+                                    <button class="btn btn-danger" style="color:white;">Logout</button>
                                 </li>
                             </ul>
                         </nav>

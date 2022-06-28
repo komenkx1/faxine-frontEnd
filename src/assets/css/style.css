@@ -3803,4 +3803,20 @@ textarea:focus {
   word-break: break-word;
 }
 
+.icon-facebook{
+  color: #0172d0;
+}
+
+.icon-twitter{
+  color: #3fc3ee;
+}
+
+.icon-instagram{
+  color: #ff009d;
+}
+
+.social-media-icon a:hover{
+  color: #00baa0;
+}
+
 /*----- footer section end -----*/
