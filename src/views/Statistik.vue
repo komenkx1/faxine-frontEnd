@@ -135,7 +135,6 @@
                 getStatistik() {
                     this.isLoading = true;
                     StatistikCovidService.getStatistik().then(response => {
-                        console.log(response);
                         this.cases = response.data.jumlah_positif
                         this.deaths = response.data.jumlah_meninggal
                         this.recovered = response.data.jumlah_sembuh
@@ -147,7 +146,6 @@
                 getStatistikVaksin() {
                     this.isLoading = true;
                     StatistikCovidService.getStatistikVaksinasi().then(response => {
-                        // console.log(response.data.vaksinasi.total);
                         this.vaksinasi = response.data
                         this.isLoading = false
         
