@@ -7,27 +7,20 @@
             <form action="" class="p-4 p-md-5" style="margin:0;">
               <div class="form-group">
                 <label for="">Judul Berita</label>
-                <input :disabled="isLoading ? true : false" type="text" class="form-control" placeholder="Masukkan Judul Berita" id="judul" required
-                  v-model="berita.judul" name="judul" />
+                <input :disabled="isLoading ? true : false" type="text" class="form-control"
+                  placeholder="Masukkan Judul Berita" id="judul" required v-model="berita.judul" name="judul" />
               </div>
               <div class="form-group">
                 <label for="">Content Berita</label>
-                   <editor 
-                    api-key="xdw74o33z31pibmchix9b4rw8vmqy1jmea2ys7l4m7hovk5k"
-                    v-model="berita.content"
-            toolbar="image italic link undo redo formatselect bold italic backcolor 
+                <editor api-key="xdw74o33z31pibmchix9b4rw8vmqy1jmea2ys7l4m7hovk5k" v-model="berita.content" toolbar="image italic link undo redo formatselect bold italic backcolor 
            alignleft aligncenter alignright alignjustify 
-           bullist numlist outdent indent removeformat"
-           plugins="image link"
-           :disabled="isLoading ? true : false"
-           :initialValue="'test'"
-
-        ></editor>
+           bullist numlist outdent indent removeformat" plugins="image link" :disabled="isLoading ? true : false"
+                  :initialValue="'test'"></editor>
               </div>
               <div class="form-group">
                 <label for="">Cover</label>
-                <input type="text" :disabled="isLoading ? true : false" class="form-control" placeholder="Masukkan Url Gambar" id="cover" required
-                  v-model="berita.cover" name="cover" />
+                <input type="text" :disabled="isLoading ? true : false" class="form-control"
+                  placeholder="Masukkan Url Gambar" id="cover" required v-model="berita.cover" name="cover" />
               </div>
               <button v-if="isEdit" @click="updateBerita" type="button" class="btn btn-primary">
                 Update
@@ -61,12 +54,12 @@ export default {
       },
       isEdit: false,
       id_user: 0,
-      isLoading:false
+      isLoading: false
     };
   },
-components: {
-           'editor': Editor // <- Important part
-    },
+  components: {
+    'editor': Editor // <- Important part
+  },
   methods: {
     saveBerita() {
       this.isLoading = true;
@@ -83,13 +76,13 @@ components: {
             title: "Data Berhasil Ditambahkan",
           });
           this.berita = {};
-      this.isLoading = false;
-          this.$emit("isShowForm",false);
+          this.isLoading = false;
+          this.$emit("isShowForm", false);
           this.$parent.refeshDataList();
 
         })
         .catch(async (e) => {
-      this.isLoading = false;
+          this.isLoading = false;
           if (e.response.data != null) {
             let errorValue = []
             let errorKey = []
@@ -115,6 +108,7 @@ components: {
         });
     },
     updateBerita() {
+      this.isLoading = true;
       BeritaService.update(this.berita.id, this.berita)
         .then(() => {
           CustomAlert.fire({
@@ -122,9 +116,11 @@ components: {
             title: "Data Berhasil Diperbarui",
           });
           this.berita = {};
-           this.$router.push({path:"/Berita"})
+          this.$router.push({ path: "/Berita" })
+          this.isLoading = false;
         })
         .catch((e) => {
+          this.isLoading = false;
           if (e.response.data.message != null) {
             CustomAlert.fire({
               icon: "error",

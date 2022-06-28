@@ -15,14 +15,14 @@
               <BlogRecentSkeleton v-if="isLoading" />
               <li class="recent-posts" v-for="key in recentBerita" :key="key.id" v-else>
                 <div class="recent-posts-image">
-                  <router-link :to="'/Berita/' + key.slug">
+                  <router-link @click="getBySlug(key.slug)" :to="'/Berita/' + key.slug">
                     <img :src="key.cover" alt="blog thumb">
                   </router-link>
                 </div>
                 <div class="recent-posts-body">
                   <span class="recent-posts-meta">{{ key.tanggal_pembuatan }}</span>
                   <h6 class="recent-posts-title">
-                    <router-link :to="'/Berita/' + key.slug">{{ key.judul }}</router-link>
+                    <router-link @click="getBySlug(key.slug)" :to="'/Berita/' + key.slug">{{ key.judul }}</router-link>
                   </h6>
                 </div>
               </li>
