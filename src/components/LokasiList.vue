@@ -49,6 +49,9 @@
             </div>
           </div>
         </div>
+        <div class="width-100 d-flex justify-content-center m-4" v-if="pageCount != currentPage && !isHome">
+          <button @click="loadMore" class="btn btn-primary text-center">Load More</button>
+        </div>
       </div>
     </div>
   </div>
@@ -70,15 +73,40 @@ export default {
       isLogin: IsLoginUser != null ? IsLoginUser.isLogin : false,
       lokasiDatas: [],
       isLoading: false,
+      pageCount: 0,
+      currentPage: 1,
 
     };
   },
   methods: {
 
-    async loadData() {
+    loadMore() {
+      if (this.currentPage < this.pageCount) {
+        this.isLoading = true;
+        this.currentPage++;
+        LokasiService.getPerPage(this.currentPage)
+          .then((response) => {
+
+            this.lokasiDatas = this.lokasiDatas.concat(response.data.data);
+            this.isLoading = false;
+          })
+
+          .catch((e) => {
+            this.isLoading = false;
+            console.log(e);
+            if (e.response.status === 401) {
+              sessionExpired();
+            }
+          },
+          )
+      }
+    },
+    async loadData(page) {
       this.isLoading = true;
-      LokasiService.getAll()
+      LokasiService.getPerPage(page)
         .then((response) => {
+          this.pageCount = response.data.meta.last_page;
+          console.log(this.pageCount);
           if (this.itemCount > 0) {
             this.itemCount + 1;
             this.lokasiDatas = response.data.data.slice(0, this.itemCount)
@@ -176,7 +204,7 @@ export default {
   },
   mounted() {
 
-    this.loadData();
+    this.loadData(this.currentPage);
   },
   components: { LokasiSkeleton },
 };
