@@ -135,7 +135,7 @@
     <li>Klik Tombol Submit</li>
   </ol>
   <img
-    src="https://user-images.githubusercontent.com/55641225/176088195-7e187f66-9471-454e-944c-0ba219fcebf7.png"
+    src="https://user-images.githubusercontent.com/55641225/176101813-118c9b31-989c-4b93-a4b8-db9881a48474.png"
     alt="login"
     width="60%"
   />
