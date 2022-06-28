@@ -78,7 +78,7 @@
                                 <h2 class="h1 title" id="informasi">Informasi Vaksin<p class="title-active"> Covid-19</p>
                                 </h2>
                                 <br>
-                                <button class="btn btn-primary mt-5 p-3"><router-link to="/Informasi" style="color:white;">Buat Lokasi Baru</router-link></button>
+                                <router-link to="/Informasi" style="color:white;"><button class="btn btn-primary mt-5 p-3">Buat Lokasi Baru</button></router-link>
                             </div>
                         </div>
                     </div>

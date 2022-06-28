@@ -1,5 +1,9 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
 /* @import url('/node_modules/bootstrap/dist/css/bootstrap.min.css'); */
+
+html{
+  scroll-behavior: smooth;
+}
 body {
   color: #151515;
   line-height: 1.7;
@@ -279,7 +283,7 @@ textarea:focus {
 
 /*------- short classes start -------*/
 .section-padding {
-  padding: 130px 0;
+  padding: 50px 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
