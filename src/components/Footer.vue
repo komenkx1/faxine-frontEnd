@@ -14,7 +14,7 @@
                 </div>
                 <div class="widget-body">
                   <p class="desc">
-                    Faxine merupakan sebuah platform yang dibuat untuk membantu 
+                    Faxine merupakan sebuah platform yang dibuat untuk membantu
                     masyarakat yang ingin melakukan vaksinasi guna mencegah penyebaran covid-19.
                   </p>
                 </div>
@@ -28,11 +28,21 @@
                 <h3 class="widget-title">Tautan Terkait</h3>
                 <div class="widget-body">
                   <ul class="useful-link">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Informasi Vaksin Covid</a></li>
-                    <li><a href="#">Data Statistik Covid</a></li>
-                    <li><a href="#">Berita</a></li>
-                    <li><a href="#">Tentang Kami</a></li>
+                    <li :class="{ 'active': getRoutePath === '/' }">
+                      <router-link to="/">Home</router-link>
+                    </li>
+                    <li :class="{ 'active': getRoutePath === '/Informasi' }">
+                      <router-link to="/Informasi">Informasi Vaksin Covid</router-link>
+                    </li>
+                    <li :class="{ 'active': getRoutePath === '/Statistik' }">
+                      <router-link to="/Statistik">Data Statistik Covid</router-link>
+                    </li>
+                    <li :class="{ 'active': getRoutePath === '/Berita' }">
+                      <router-link to="/Berita">Berita</router-link>
+                    </li>
+                    <li :class="{ 'active': getRoutePath === '/Tentang-Kami' }">
+                      <router-link to="/Tentang-Kami">Tentang Kami</router-link>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -45,9 +55,18 @@
                 <h3 class="widget-title">Social Media</h3>
                 <div class="widget-body news-subtitle">
                   <ul class="d-flex social-media-icon">
-                    <li><div class="card "><a class="icon-facebook" href="https://www.facebook.com/dicoding" target="_blank"> <i class="fa-brands fa-facebook-square p-2"></i></a></div></li>
-                    <li><div class="card ml-2"><a class="icon-twitter" href="https://www.twitter.com/dicoding" target="_blank"> <i class="fa-brands fa-twitter-square p-2"></i></a></div></li>
-                    <li><div class="card ml-2"><a class="icon-instagram" href="https://www.instagram.com/dicoding" target="_blank"> <i class="fa-brands fa-instagram-square p-2"></i></a></div></li>
+                    <li>
+                      <div class="card "><a class="icon-facebook" href="https://www.facebook.com/dicoding"
+                          target="_blank"> <i class="fa-brands fa-facebook-square p-2"></i></a></div>
+                    </li>
+                    <li>
+                      <div class="card ml-2"><a class="icon-twitter" href="https://www.twitter.com/dicoding"
+                          target="_blank"> <i class="fa-brands fa-twitter-square p-2"></i></a></div>
+                    </li>
+                    <li>
+                      <div class="card ml-2"><a class="icon-instagram" href="https://www.instagram.com/dicoding"
+                          target="_blank"> <i class="fa-brands fa-instagram-square p-2"></i></a></div>
+                    </li>
                   </ul>
                 </div>
               </div>

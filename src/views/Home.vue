@@ -2,7 +2,7 @@
     <div>
         <main>
             <!-- hero slider section start -->
-            <section class="hero-slider hero-transparent-bg gray-bg fix">
+            <section class="hero-slider hero-transparent-bg gray-bg fix" id="home-section">
                 <div class="hero-slider-active slick-arrow-style  slick-dot-style">
                     <!-- single slider item start -->
                     <div class="hero-single-slide">
@@ -118,9 +118,14 @@
 
 import LokasiList from "@/components/LokasiList.vue";
 import BeritaList from "@/components/BeritaList.vue";
+import scrollToTop from "@/helper/ScrollToTopHelper";
 
 export default {
     name: 'HomeVue',
     components: { LokasiList, BeritaList },
+    mounted() {
+        scrollToTop("home-section");
+    }
 }
+
 </script>

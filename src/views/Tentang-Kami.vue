@@ -2,7 +2,7 @@
     <div>
         <main>
             <!-- breadcrumb section start -->
-            <div class="breadcrumb-area bg-img bg-img-tentang-kami">
+            <div class="breadcrumb-area bg-img bg-img-tentang-kami" id="about-section">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -126,8 +126,13 @@
     </div>
 </template>
 <script>
+import scrollToTop from "@/helper/ScrollToTopHelper";
+
 export default {
     name: 'TentangKamiVue',
+    mounted() {
+        scrollToTop("about-section");
+    }
 
 }
 </script>

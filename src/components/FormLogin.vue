@@ -1,9 +1,8 @@
 <template>
   <section class="form section-padding mt-5">
     <div class="container">
-
     <div class="row">
-      <div class="col-lg-12 d-flex justify-content-center">
+      <div class="col-lg-6 mx-auto col-12 d-flex justify-content-center">
         <form
           action=""
            class="border border-success p-3 w-100 rounded-lg"
