@@ -77,6 +77,8 @@
                             <div class="section-title text-center">
                                 <h2 class="h1 title" id="informasi">Informasi Vaksin<p class="title-active"> Covid-19</p>
                                 </h2>
+                                <br>
+                                <button class="btn btn-primary mt-5 p-3"><router-link to="/Informasi" style="color:white;">Buat Lokasi Baru</router-link></button>
                             </div>
                         </div>
                     </div>
@@ -100,6 +102,7 @@
 
                        <BeritaList :item-count="3" :is-home="true"/>
                        <br>
+                       <router-link to="/Berita" style="color: #00baa0; font-weight: bold;" class="d-flex justify-content-around">Lihat Selengkapnya >></router-link>
 
                 </div>
             </section>

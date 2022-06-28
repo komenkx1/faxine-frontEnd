@@ -97,7 +97,7 @@
                                 <div class="team-member-info">
                                     <h5 class="team-member-name">Andrian</h5>
                                 </div>
-                                <img src="../assets/img/team/wahyu.png">
+                                <img src="../assets/img/team/Andrian.png">
                             </div>
                         </div>
                     </div>

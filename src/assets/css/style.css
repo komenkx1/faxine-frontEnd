@@ -12,6 +12,7 @@ a {
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
+  text-decoration: none !important;
 }
 
 a:hover, a:focus {
