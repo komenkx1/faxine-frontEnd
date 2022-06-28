@@ -4,6 +4,9 @@ class LokasiService {
     getAll() {
       return http.get("/lokasi");
     }
+    getPerPage(page) {
+      return http.get(`/lokasi?page=${page}`);
+    }
     get(id) {
       
       return http.get(`/lokasi/${id}`);
