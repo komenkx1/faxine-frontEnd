@@ -133,6 +133,7 @@ export default {
           this.berita = response.data.data;
           this.berita.tanggal_pembuatan = BeritaService.convertDate(this.berita.tanggal_pembuatan);
           this.isLoading = false;
+          scrollToTop('detail-berita')
 
         })
         .catch((e) => {
@@ -183,7 +184,6 @@ export default {
   //   )
   // },
   mounted() {
-      scrollToTop('detail-berita')
     this.loadData();
     this.getBySlug(this.$route.params.id);
   },
