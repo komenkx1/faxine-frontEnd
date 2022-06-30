@@ -49,6 +49,7 @@ import BlogItemSkeleton from '@/components/BlogItemSkeleton.vue';
 import IsLoginUser from '@/helper/CheckIsloginHelper';
 import scrollToTop from "@/helper/ScrollToTopHelper";
 import sessionExpired from '@/helper/SessionExpired';
+import CustomAlert from './CustomAlert.vue';
 
 
 export default {
@@ -94,6 +95,7 @@ export default {
 
         })
         .catch((e) => {
+            this.isLoading = false;
           console.log(e);
           if (e.response.status === 401) {
             sessionExpired();
@@ -122,6 +124,14 @@ export default {
           }
         })
         .catch((e) => {
+      this.isLoading = false;
+   if (e.code === 'ERR_NETWORK') {
+            return CustomAlert.fire({
+              icon: "error",
+              title:
+                "Koneksi Internet Tidak Tersedia!",
+            });
+          }
           console.log(e);
           if (e.response.status === 401) {
             sessionExpired();
@@ -151,6 +161,7 @@ export default {
 
         })
         .catch((e) => {
+            this.isLoading = false;
           console.log(e);
           if (e.response.status === 401) {
             sessionExpired();

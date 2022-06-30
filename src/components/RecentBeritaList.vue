@@ -60,6 +60,7 @@ async loadData() {
 
         })
         .catch((e) => {
+            this.isLoading = false;
           console.log(e);
    if (e.response.status === 401) {
                      sessionExpired();

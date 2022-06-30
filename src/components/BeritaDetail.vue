@@ -122,6 +122,7 @@ export default {
 
         })
         .catch((e) => {
+            this.isLoading = false;
           console.log(e);
           if (e.response.status === 401) {
             sessionExpired();
@@ -139,6 +140,14 @@ export default {
 
         })
         .catch((e) => {
+            this.isLoading = false;
+            if (e.code === 'ERR_NETWORK') {
+                  return CustomAlert.fire({
+                    icon: "error",
+                    title:
+                      "Koneksi Internet Tidak Tersedia!",
+                  });
+                }
           console.log(e);
           if (e.response.status === 401) {
             sessionExpired();
