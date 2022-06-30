@@ -178,6 +178,7 @@ export default {
                   icon: 'warning',
                   title: response.data.message,
                 });
+          this.$emit('isShowForm', false);
                 this.loadData();
               })
               .catch((e) => {
