@@ -40,8 +40,8 @@
                 </button>
               </div>
               <div class="col-md-4">
-                <input type="text" class="w-100 form-control" placeholder="cari lokasi" v-model="search"
-                  @keyup="searchData">
+                <input type="text" class="w-100 form-control" placeholder="Tekan enter untuk mencari lokasi..." v-model="search"
+                  @keyup.enter="searchData">
               </div>
             </div>
           </div>
@@ -58,8 +58,6 @@
 import LokasiList from "@/components/LokasiList.vue";
 import AddLocationForm from "@/components/AddLocationForm.vue";
 import scrollToTop from "@/helper/ScrollToTopHelper";
-
-var typingTimer = null;
 
 export default {
   name: "InformasiVue",
@@ -99,11 +97,8 @@ export default {
       await this.$refs.lokasiData.loadData();
     },
     async searchData() {
-      clearTimeout(typingTimer);
-      typingTimer = setTimeout(async () => await this.$refs.lokasiData.loadDataSearchData()
-        , 500)
+    await this.$refs.lokasiData.loadDataSearchData()
       //emit search function on list component
-
     }
   },
   mounted() {
