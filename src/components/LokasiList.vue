@@ -106,7 +106,6 @@ export default {
       LokasiService.getPerPage(page)
         .then((response) => {
           this.pageCount = response.data.meta.last_page;
-          console.log(this.pageCount);
           if (this.itemCount > 0) {
             this.itemCount + 1;
             this.lokasiDatas = response.data.data.slice(0, this.itemCount)
