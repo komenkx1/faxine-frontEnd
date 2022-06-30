@@ -101,6 +101,7 @@ export default {
 
         })
         .catch((e) => {
+          this.isLoadingform = false;
           if (e.response.data.message != null) {
             CustomAlert.fire({
               icon: "error",
@@ -112,7 +113,6 @@ export default {
               title:
                 "Terdapat Field Yang Belum lengkap! Silahkan Lengkapi Field Yang Tersedia",
             });
-            this.isLoadingform = false;
           }
         });
     },
