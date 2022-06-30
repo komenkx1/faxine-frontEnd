@@ -93,5 +93,13 @@
 <script>
 export default {
   name: "FooterVue",
+   computed: {
+        getRoutePath() {
+            return this.$route.path;
+        },
+        getToggler() {
+            return this.clickToggler
+        }
+    }
 };
 </script>
