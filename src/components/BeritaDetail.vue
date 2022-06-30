@@ -86,6 +86,7 @@ import IsLoginUser from '@/helper/CheckIsloginHelper';
 import BlogRecentSkeleton from '@/components/BlogRecentSkeleton.vue';
 import scrollToTop from "@/helper/ScrollToTopHelper";
 import sessionExpired from '@/helper/SessionExpired';
+import CustomAlert from './CustomAlert.vue';
 
 
 export default {
@@ -106,6 +107,7 @@ export default {
       this.isShowForm = true;
       //scroll to top
       scrollToTop('form-add-berita')
+      
     },
     async loadData() {
       this.isLoading = true;
@@ -161,6 +163,13 @@ export default {
                 this.$router.push({ path: "/Berita" })
               })
               .catch((e) => {
+                if (e.code === 'ERR_NETWORK') {
+                  return CustomAlert.fire({
+                    icon: "error",
+                    title:
+                      "Koneksi Internet Tidak Tersedia!",
+                  });
+                }
                 console.log(e);
               });
           }

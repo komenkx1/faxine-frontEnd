@@ -151,6 +151,13 @@ export default {
           this.$emit('isShowForm', true);
         })
         .catch((e) => {
+          if (e.code === 'ERR_NETWORK') {
+            return CustomAlert.fire({
+              icon: "error",
+              title:
+                "Koneksi Internet Tidak Tersedia!",
+            });
+          }
           console.log(e);
           if (e.response.status === 401) {
             sessionExpired();
@@ -181,6 +188,13 @@ export default {
                 this.loadData();
               })
               .catch((e) => {
+                if (e.code === 'ERR_NETWORK') {
+            return CustomAlert.fire({
+              icon: "error",
+              title:
+                "Koneksi Internet Tidak Tersedia!",
+            });
+          }
                 console.log(e);
               });
           }

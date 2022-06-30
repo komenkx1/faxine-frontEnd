@@ -102,6 +102,14 @@ export default {
         })
         .catch((e) => {
           this.isLoadingform = false;
+
+          if (e.code === 'ERR_NETWORK') {
+            return CustomAlert.fire({
+              icon: "error",
+              title:
+                "Koneksi Internet Tidak Tersedia!",
+            });
+          }
           if (e.response.data.message != null) {
             CustomAlert.fire({
               icon: "error",
@@ -114,6 +122,8 @@ export default {
                 "Terdapat Field Yang Belum lengkap! Silahkan Lengkapi Field Yang Tersedia",
             });
           }
+
+
         });
     },
 
@@ -133,6 +143,14 @@ export default {
 
         })
         .catch((e) => {
+          this.isLoadingform = false;
+          if (e.code === 'ERR_NETWORK') {
+            return CustomAlert.fire({
+              icon: "error",
+              title:
+                "Koneksi Internet Tidak Tersedia!",
+            });
+          }
           if (e.response.data.message != null) {
             CustomAlert.fire({
               icon: "error",
@@ -145,7 +163,6 @@ export default {
                 "Terdapat Field Yang Belum lengkap! Silahkan Lengkapi Field Yang Tersedia",
             });
           }
-          this.isLoadingform = false;
 
         });
     },

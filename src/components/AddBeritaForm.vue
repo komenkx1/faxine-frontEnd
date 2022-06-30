@@ -83,6 +83,13 @@ export default {
         })
         .catch(async (e) => {
           this.isLoading = false;
+          if (e.code === 'ERR_NETWORK') {
+            return CustomAlert.fire({
+              icon: "error",
+              title:
+                "Koneksi Internet Tidak Tersedia!",
+            });
+          }
           if (e.response.data != null) {
             let errorValue = []
             let errorKey = []
@@ -121,6 +128,13 @@ export default {
         })
         .catch((e) => {
           this.isLoading = false;
+          if (e.code === 'ERR_NETWORK') {
+            return CustomAlert.fire({
+              icon: "error",
+              title:
+                "Koneksi Internet Tidak Tersedia!",
+            });
+          }
           if (e.response.data.message != null) {
             CustomAlert.fire({
               icon: "error",

@@ -81,6 +81,13 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+          if (e.code === 'ERR_NETWORK') {
+                  return CustomAlert.fire({
+                    icon: "error",
+                    title:
+                      "Koneksi Internet Tidak Tersedia!",
+                  });
+                }
           if (e.response.data != null) {
             CustomAlert.fire({
               icon: 'error',

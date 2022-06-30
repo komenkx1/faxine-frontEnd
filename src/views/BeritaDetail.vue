@@ -26,7 +26,6 @@
 </template>
 <script>
 import BeritaDetail from '@/components/BeritaDetail.vue';
-import CustomAlert from '@/components/CustomAlert.vue';
 // import { Swal } from "sweetalert2/dist/sweetalert2";
 
 export default {
@@ -35,16 +34,8 @@ export default {
     components: { BeritaDetail },
 
     methods: {
-        async showAlert() {
-        // Use sweetalert2
-        CustomAlert.fire({
-            icon: 'success',
-            title: 'Success'
-        })
-        },
     },
     mounted() {
-        this.showAlert();
     },
 };
 </script>
