@@ -9,7 +9,7 @@
               <div class="footer-single-widget mt-40">
                 <div class="widget-logo">
                   <a href="#">
-                    <img src="../assets/img/logo/faxine.png" />
+                    <img src="../assets/img/logo/faxine.png" alt="logo"/>
                   </a>
                 </div>
                 <div class="widget-body">

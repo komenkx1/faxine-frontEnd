@@ -38,7 +38,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="service-policy-item mt-30">
                                 <div class="service-policy-icon">
-                                    <img src="../assets/img/icon/vaccination.png">
+                                    <img src="../assets/img/icon/vaccination.png" alt="vacction illustration">
                                 </div>
                                 <h3 class="service-policy-title">Info Vaksinasi</h3>
                             </div>
@@ -48,7 +48,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="service-policy-item mt-30">
                                 <div class="service-policy-icon">
-                                    <img src="../assets/img/icon/analysis.png">
+                                    <img src="../assets/img/icon/analysis.png" alt="analyiys illustration">
                                 </div>
                                 <h3 class="service-policy-title">Statistik Covid-19</h3>
                             </div>
@@ -58,7 +58,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="service-policy-item mt-30">
                                 <div class="service-policy-icon">
-                                    <img src="../assets/img/icon/news.png">
+                                    <img src="../assets/img/icon/news.png" alt="news illustration">
                                 </div>
                                 <h3 class="service-policy-title">Berita Terkini</h3>
                             </div>

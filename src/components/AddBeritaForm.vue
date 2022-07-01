@@ -15,7 +15,11 @@
                 <editor api-key="xdw74o33z31pibmchix9b4rw8vmqy1jmea2ys7l4m7hovk5k" v-model="berita.content" toolbar="image italic link undo redo formatselect bold italic backcolor 
            alignleft aligncenter alignright alignjustify 
            bullist numlist outdent indent removeformat" plugins="image link" :disabled="isLoading ? true : false"
-                  :initialValue="'test'"></editor>
+                  :init="{
+                    image_class_list: [
+                    {title: 'Responsive', value: 'img-responsive'}
+                      ],
+                  }"></editor>
               </div>
               <div class="form-group">
                 <label for="">Cover</label>

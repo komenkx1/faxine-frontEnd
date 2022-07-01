@@ -9,7 +9,7 @@
                             <!-- logo area start -->
                             <div class="brand-logo">
                                 <a href="#">
-                                    <img src="../assets/img/logo/faxine.png" />
+                                    <img src="../assets/img/logo/faxine.png" alt="logo" />
                                 </a>
                             </div>
                             <!-- logo area end -->
